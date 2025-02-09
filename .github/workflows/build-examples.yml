@@ -37,7 +37,4 @@ jobs:
         run: sudo ln -s /usr/lib/libraylib.so.450 /lib/raylib.so
       - name: Build Examples
         run: |
-          for file in examples/* \
-          do \
-            crystal build examples/"$file" \
-          done \
+          crystal build examples/bouncing_cube.cr

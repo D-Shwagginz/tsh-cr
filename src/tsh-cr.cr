@@ -18,6 +18,8 @@
 
 require "./engine.cr"
 
+require "../examples/bouncing_cube.cr"
+
 # The "T(hirty) S(ix) H(undered) engine"
 module Tsh
   VERSION = "0.1.0"
