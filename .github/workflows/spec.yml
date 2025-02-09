@@ -36,4 +36,4 @@ jobs:
       - name: Install raylib 2
         run: sudo ln -s /usr/lib/libraylib.so.450 /lib/raylib.so
       - name: Run Tests
-        run: crystal spec
+        run: crystal spec --tag gh-actions

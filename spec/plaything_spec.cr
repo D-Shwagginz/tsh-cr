@@ -2,7 +2,7 @@ require "./spec_helper"
 require "raylib-cr"
 
 describe Tsh::PlayThing do
-  it "Should create a plaything and destroy it" do
+  it "Should create a plaything and destroy it", tags: "gh-actions" do
     pt = Tsh::PlayThing.new
     pt.destroy
     pt = nil
