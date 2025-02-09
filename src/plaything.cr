@@ -182,6 +182,16 @@ module Tsh
     property collision_flags : CollisionFlags = CollisionFlags::None
     # Called when an overlap between this plaything (pt) and another plaything (other) occurs
     property on_collide : Proc(PlayThing, PlayThing, Nil) = ->(pt : PlayThing, other : PlayThing) {}
+    # Called once when an overlap starts
+    property on_collide_start : Proc(PlayThing, PlayThing, Nil) = ->(pt : PlayThing, other : PlayThing) {}
+    # Called once when an overlap stops
+    property on_collide_end : Proc(PlayThing, PlayThing, Nil) = ->(pt : PlayThing, other : PlayThing) {}
+    # A list of all colliders for one time start and stop collisions
+    @colliders = [] of PlayThing
+
+    protected def colliders
+      @colliders
+    end
 
     def initialize
       Tsh.playthings << self
@@ -190,11 +200,15 @@ module Tsh
     def initialize(*, x : Int = 0, y : Int = 0,
                    collision_flags : CollisionFlags = CollisionFlags::None,
                    on_collide : Proc(PlayThing, PlayThing, Nil) = ->(pt : PlayThing, other : PlayThing) {},
+                   on_collide_start : Proc(PlayThing, PlayThing, Nil) = ->(pt : PlayThing, other : PlayThing) {},
+                   on_collide_end : Proc(PlayThing, PlayThing, Nil) = ->(pt : PlayThing, other : PlayThing) {},
                    sprites : Array(Sprite) = [] of Sprite,
                    flags : Flags = Flags::None)
       Tsh.playthings << self
       @collision_flags = collision_flags
       @on_collide = on_collide
+      @on_collide_start = on_collide_start
+      @on_collide_end = on_collide_end
       @x = x.to_u32
       @y = y.to_u32
       @last_x = @x
@@ -265,7 +279,7 @@ module Tsh
         @sprite = sprite < 0 ? 0 : (sprite >= sprites.size ? sprites.size - 1 : sprite)
       end
 
-      if sprite >= 0 && (flags & Flags::Invisible).value == 0
+      if sprite >= 0 && !flags.includes?(Flags::Invisible)
         RLGL.push_matrix
         RLGL.translate_f(@x.to_f32 + @sprites[@sprite].width/2, @y.to_f32 + @sprites[@sprite].height/2, 0)
         RLGL.rotate_f(@angle, 0, 0, -1)

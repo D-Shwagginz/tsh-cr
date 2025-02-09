@@ -41,3 +41,5 @@ jobs:
           crystal build examples/controllable_ship.cr
           crystal build examples/flipbook_animation.cr
           crystal build examples/2d_walking.cr
+          crystal build examples/collision.cr
+          crystal build examples/collision_trigger.cr

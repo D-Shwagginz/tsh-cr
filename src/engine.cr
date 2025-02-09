@@ -45,7 +45,7 @@ module Tsh
       @@playthings[0..-2].each.with_index do |pt, i|
         next if pt.sprite == -1
 
-        pt_box = Raylib::Rectangle.new(x: pt.x + pt.sprites[pt.sprite].width/2 + 1,
+        pt_box = Raylib::Rectangle.new(x: pt.x + pt.sprites[pt.sprite].width/2 - 1,
           y: pt.y + pt.sprites[pt.sprite].height/2,
           width: pt.sprites[pt.sprite].width,
           height: pt.sprites[pt.sprite].height
@@ -63,6 +63,23 @@ module Tsh
           if Raylib.check_collision_recs?(pt_box, other_box)
             pt.on_collide.call(pt, other)
             other.on_collide.call(other, pt)
+            if !pt.colliders.includes?(other)
+              pt.colliders << other
+              pt.on_collide_start.call(pt, other)
+            end
+            if !other.colliders.includes?(pt)
+              other.colliders << pt
+              other.on_collide_start.call(other, pt)
+            end
+          else
+            if pt.colliders.includes?(other)
+              pt.colliders.delete(other)
+              pt.on_collide_end.call(pt, other)
+            end
+            if other.colliders.includes?(pt)
+              other.colliders.delete(pt)
+              other.on_collide_start.call(other, pt)
+            end
           end
         end
       end
