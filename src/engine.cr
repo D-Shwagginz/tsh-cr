@@ -34,6 +34,11 @@ module Tsh
     return Raylib.key_down?(key)
   end
 
+  # Checks if a key has been pressed
+  def self.key_pressed?(key : Key)
+    return Raylib.key_pressed?(key)
+  end
+
   # Starts the engine.
   # Yields a block to update the game
   def self.play(title : String, @@res_x : UInt32, @@res_y : UInt32, colors : Array(Raylib::Color), &)

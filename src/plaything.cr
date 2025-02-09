@@ -105,16 +105,29 @@ module Tsh
       end
     end
 
-    # Starts the flipbook
+    # Starts the flipbook and resets the frame and delay
     def start
-      @active = true
-      @wait_until = Raylib.get_time + delay
+      if !@active
+        @current_frame = start_frame
+        @wait_until = Raylib.get_time + delay
+        @active = true
+      end
     end
 
-    # Stops the flipbook and resets the frame
+    # Starts the flipbook while keeping the current frame and delay difference
+    def resume
+      if !active
+        @wait_until += Raylib.get_time
+        @active = true
+      end
+    end
+
+    # Stops the flipbook and saves the current delay
     def stop
-      @active = false
-      @current_frame = start_frame
+      if @active
+        @wait_until -= Raylib.get_time
+        @active = false
+      end
     end
 
     # Resets the current frame back to the beginning as well as restarting the delay

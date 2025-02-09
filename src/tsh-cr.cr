@@ -18,9 +18,7 @@
 
 require "./engine.cr"
 
-require "../examples/controllable_ship.cr"
-
-# The "T(hirty) S(ix) H(undered) engine"
+# The T(hirty) S(ix) H(undered) engine
 module Tsh
   VERSION = "0.1.0"
 end
