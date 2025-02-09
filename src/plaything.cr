@@ -1,3 +1,21 @@
+# Copyright 2025 Devin Shwagginz
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+#
+# DESCRIPTION :
+#  Everything relating to PlayThings and Sprites
+
 require "raylib-cr"
 require "raylib-cr/rlgl"
 
@@ -203,8 +221,11 @@ module Tsh
     end
 
     protected def draw
-      self.sprite = flipbook.active ? flipbook.current_frame : sprite
-      
+      if flipbook.active
+        @sprite = flipbook.current_frame
+        @sprite = sprite < 0 ? 0 : (sprite >= sprites.size ? sprites.size - 1 : sprite)
+      end
+
       if sprite >= 0 && (flags & Flags::Invisible).value == 0
         RLGL.push_matrix
         RLGL.translate_f(@x.to_f32 + @sprites[@sprite].width/2, @y.to_f32 + @sprites[@sprite].height/2, 0)
