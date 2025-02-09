@@ -36,6 +36,7 @@ jobs:
       - name: Install raylib 2
         run: sudo ln -s /usr/lib/libraylib.so.450 /lib/raylib.so
       - name: Build Examples
-        run: crystal build examples/bouncing_cube.cr
-        run: crystal build examples/controllable_ship.cr
-        run: crystal build examples/flipbook_animation.cr
+        run: |
+          crystal build examples/bouncing_cube.cr
+          crystal build examples/controllable_ship.cr
+          crystal build examples/flipbook_animation.cr
