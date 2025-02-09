@@ -1,0 +1,17 @@
+name: tsh-cr
+version: 0.1.0
+
+authors:
+  - D. Shwagginz <devin@shwaggi.nz>
+
+targets:
+  tsh-cr:
+    main: src/tsh-cr.cr
+
+dependencies:
+  raylib-cr:
+    github: sol-vin/raylib-cr
+
+crystal: '>= 1.13.3'
+
+license: MIT
