@@ -38,7 +38,7 @@ module Tsh
   alias Color = Raylib::Color
   alias Colors = StaticArray(Color, COLOR_COUNT)
 
-  # A static array of Raylib colors of size *COLOR_COUND*
+  # A static array of Raylib colors of size *COLOR_COUNT*
   class_getter colors : Colors = Colors.new(Raylib::BLACK)
 
   protected def self.set_color(i : Int, color : Raylib::Color)
