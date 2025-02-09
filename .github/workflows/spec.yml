@@ -32,8 +32,8 @@ jobs:
       - name: make install raylib
         run: sudo make install -C raylib/build
       - name: Install raylib 1
-        run: sudo cp /usr/local/lib/libraylib.so.5.0.0 /usr/lib/libraylib.so.500
+        run: sudo cp /usr/local/lib/libraylib.so.4.5.0 /usr/lib/libraylib.so.450
       - name: Install raylib 2
-        run: sudo ln -s /usr/lib/libraylib.so.500 /lib/raylib.so
+        run: sudo ln -s /usr/lib/libraylib.so.450 /lib/raylib.so
       - name: Run Tests
         run: crystal spec
