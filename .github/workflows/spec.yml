@@ -11,12 +11,10 @@ jobs:
         uses: oprypin/install-crystal@v1
       - name: Install Crystal libs
         run: shards install
-      - name: Update Shards
-        run: shards update
       - name: Compile miniaudiohelpers.o
-        run: gcc -c -fPIC lib/raylib-cr/rsrc/miniaudio-tests/miniaudiohelpers.c -o lib/raylib-cr/rsrc/miniaudio-tests/miniaudiohelpers.o
+        run: gcc -c -fPIC lib/raylib-cr/rsrc/miniaudiohelpers/miniaudiohelpers.c -o lib/raylib-cr/rsrc/miniaudiohelpers/miniaudiohelpers.o
       - name: Compile libminiaudiohelpers.so
-        run: sudo gcc lib/raylib-cr/rsrc/miniaudio-tests/miniaudiohelpers.o -shared -o /usr/local/lib/libminiaudiohelpers.so -lm
+        run: sudo gcc lib/raylib-cr/rsrc/miniaudiohelpers/miniaudiohelpers.o -shared -o /usr/local/lib/libminiaudiohelpers.so -lm
       - name: Install miniaudiohelpers 1
         run: sudo cp /usr/local/lib/libminiaudiohelpers.so /usr/lib/libminiaudiohelpers.so
       - name: Install miniaudiohelpers 2
