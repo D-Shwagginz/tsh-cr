@@ -35,6 +35,7 @@ module Tsh
     Raylib.set_target_fps(60)
 
     while !Raylib.close_window?
+      # Collisions
       if @@playthings.size > 1
         @@playthings[0..-2].each.with_index do |pt, i|
           next if pt.sprite == -1
@@ -61,6 +62,9 @@ module Tsh
           end
         end
       end
+
+      # Flipbooks
+      @@playthings.each { |pt| pt.flipbook.update if pt.flipbook.active }
 
       # Update
       yield

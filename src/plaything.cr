@@ -59,6 +59,53 @@ module Tsh
     end
   end
 
+  # Data for sprite animation
+  struct Flipbook
+    # The starting frame of the flipbook
+    property start_frame : Int32 = 0
+    # The ending frame of the flipbook
+    property end_frame : Int32 = 0
+    # The delay in seconds between frames
+    property delay : Float64 = 0.0
+    getter current_frame : Int32 = 0
+    # Is the flipbook currently going? (Overwrites the PlayThing's *sprite* with *current_frame* if true)
+    getter active : Bool = false
+
+    @wait_until : Float64 = 0.0
+
+    def initialize
+    end
+
+    def initialize(@start_frame : Int32, @end_frame : Int32, @delay : Float64)
+      @current_frame = start_frame
+    end
+
+    protected def update
+      if Raylib.get_time >= @wait_until
+        @current_frame = @current_frame == end_frame ? start_frame : @current_frame + 1
+        @wait_until = Raylib.get_time + delay
+      end
+    end
+
+    # Starts the flipbook
+    def start
+      @active = true
+      @wait_until = Raylib.get_time + delay
+    end
+
+    # Stops the flipbook and resets the frame
+    def stop
+      @active = false
+      @current_frame = start_frame
+    end
+
+    # Resets the current frame back to the beginning as well as restarting the delay
+    def reset
+      @current_frame = start_frame
+      @wait_until = Raylib.get_time + delay
+    end
+  end
+
   # The generic class for anything in the engine
   class PlayThing
     @[Flags]
@@ -91,6 +138,8 @@ module Tsh
     getter sprite : Int32 = -1
     # An array of all sprites for the PlayThing to display
     getter sprites : Array(Sprite) = [] of Sprite
+    # The flipbook to animate the sprites. Will always overwrite *sprite* if active
+    property flipbook : Flipbook = Flipbook.new
 
     # The flags to use for collision detection
     property collision_flags : CollisionFlags = CollisionFlags::None
@@ -104,7 +153,8 @@ module Tsh
     def initialize(*, x : Int = 0, y : Int = 0,
                    collision_flags : CollisionFlags = CollisionFlags::None,
                    on_collide : Proc(PlayThing, PlayThing, Nil) = ->(pt : PlayThing, other : PlayThing) {},
-                   sprites : Array(Sprite) = [] of Sprite)
+                   sprites : Array(Sprite) = [] of Sprite,
+                   flags : Flags = Flags::None)
       Tsh.playthings << self
       @collision_flags = collision_flags
       @on_collide = on_collide
@@ -112,6 +162,7 @@ module Tsh
       @y = y.to_u32
       @sprites = sprites
       @sprite = 0 if @sprites.size > 0
+      @flags = flags
     end
 
     def x=(x : Int)
@@ -152,7 +203,9 @@ module Tsh
     end
 
     protected def draw
-      if sprite >= 0
+      self.sprite = flipbook.active ? flipbook.current_frame : sprite
+      
+      if sprite >= 0 && (flags & Flags::Invisible).value == 0
         RLGL.push_matrix
         RLGL.translate_f(@x.to_f32 + @sprites[@sprite].width/2, @y.to_f32 + @sprites[@sprite].height/2, 0)
         RLGL.rotate_f(@angle, 0, 0, -1)
