@@ -18,7 +18,7 @@
 
 require "./engine.cr"
 
-require "../examples/bouncing_cube.cr"
+require "../examples/controllable_ship.cr"
 
 # The "T(hirty) S(ix) H(undered) engine"
 module Tsh

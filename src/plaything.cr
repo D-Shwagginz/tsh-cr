@@ -220,6 +220,14 @@ module Tsh
       Tsh.playthings.delete(self)
     end
 
+    def forward_vector : Raylib::Vector2
+      return Raylib::Vector2.new(x: Math.cos((@angle - 90) * Raylib::DEG2RAD), y: Math.sin((@angle + 90) * Raylib::DEG2RAD))
+    end
+
+    def right_vector : Raylib::Vector2
+      return Raylib::Vector2.new(x: Math.cos(@angle * Raylib::DEG2RAD), y: Math.sin(@angle * Raylib::DEG2RAD))
+    end
+
     protected def draw
       if flipbook.active
         @sprite = flipbook.current_frame
