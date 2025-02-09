@@ -39,6 +39,36 @@ module Tsh
     return Raylib.key_pressed?(key)
   end
 
+  # Runs all collision checks
+  def self.check_collisions
+    if @@playthings.size > 1
+      @@playthings[0..-2].each.with_index do |pt, i|
+        next if pt.sprite == -1
+
+        pt_box = Raylib::Rectangle.new(x: pt.x + pt.sprites[pt.sprite].width/2 + 1,
+          y: pt.y + pt.sprites[pt.sprite].height/2,
+          width: pt.sprites[pt.sprite].width,
+          height: pt.sprites[pt.sprite].height
+        )
+
+        @@playthings[i + 1..].each do |other|
+          next if other.sprite == -1
+
+          other_box = Raylib::Rectangle.new(x: other.x + other.sprites[other.sprite].width/2,
+            y: other.y + other.sprites[other.sprite].height/2,
+            width: other.sprites[other.sprite].width,
+            height: other.sprites[other.sprite].height
+          )
+
+          if Raylib.check_collision_recs?(pt_box, other_box)
+            pt.on_collide.call(pt, other)
+            other.on_collide.call(other, pt)
+          end
+        end
+      end
+    end
+  end
+
   # Starts the engine.
   # Yields a block to update the game
   def self.play(title : String, @@res_x : UInt32, @@res_y : UInt32, colors : Array(Raylib::Color), &)
@@ -58,39 +88,13 @@ module Tsh
     Raylib.set_target_fps(60)
 
     while !Raylib.close_window?
-      # Collisions
-      if @@playthings.size > 1
-        @@playthings[0..-2].each.with_index do |pt, i|
-          next if pt.sprite == -1
-
-          pt_box = Raylib::Rectangle.new(x: pt.x + pt.sprites[pt.sprite].width/2,
-            y: pt.y + pt.sprites[pt.sprite].height/2,
-            width: pt.sprites[pt.sprite].width,
-            height: pt.sprites[pt.sprite].height
-          )
-
-          @@playthings[i + 1..].each do |other|
-            next if other.sprite == -1
-
-            other_box = Raylib::Rectangle.new(x: other.x + other.sprites[other.sprite].width/2,
-              y: other.y + other.sprites[other.sprite].height/2,
-              width: other.sprites[other.sprite].width,
-              height: other.sprites[other.sprite].height
-            )
-
-            if Raylib.check_collision_recs?(pt_box, other_box)
-              pt.on_collide.call(pt, other)
-              other.on_collide.call(other, pt)
-            end
-          end
-        end
-      end
-
       # Flipbooks
       @@playthings.each { |pt| pt.flipbook.update if pt.flipbook.active }
 
       # Update
       yield
+
+      check_collisions
 
       # Letter/Pillow boxing scale
       scale_width = Raylib.get_screen_width / @@res_x

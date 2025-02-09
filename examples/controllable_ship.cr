@@ -51,7 +51,7 @@ Tsh.play("Controllable Ship", RES_X, RES_Y, [Tsh::BLANK, Tsh::WHITE]) do
   if Tsh.key_down?(Tsh::Key::S)
     forward -= PLAYER_SPEED
   end
-  ship.move((ship.forward_vector.x * forward).to_i32, (ship.forward_vector.y * forward).to_i32)
+  ship.move((ship.up_vector.x * forward).to_i32, (ship.up_vector.y * forward).to_i32)
 
   if Tsh.key_down?(Tsh::Key::A)
     ship.rotate(-PLAYER_TURN_SPEED)

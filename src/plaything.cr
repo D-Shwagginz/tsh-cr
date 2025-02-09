@@ -32,6 +32,7 @@ module Tsh
   enum CollisionFlags
     Player
     Pickup
+    Obstacle
 
     # Custom collision flags
     Custom1
@@ -160,6 +161,11 @@ module Tsh
     getter x : UInt32 = 0
     getter y : UInt32 = 0
 
+    # The last position of the PlayThing.
+    # Used for undoing a movement.
+    @last_x : UInt32 = 0
+    @last_y : UInt32 = 0
+
     # The PlayThing's angle in degrees.
     # 0 points up.
     # All ways to set will keep the value between 0 and 360
@@ -191,16 +197,20 @@ module Tsh
       @on_collide = on_collide
       @x = x.to_u32
       @y = y.to_u32
+      @last_x = @x
+      @last_y = @y
       @sprites = sprites
       @sprite = 0 if @sprites.size > 0
       @flags = flags
     end
 
     def x=(x : Int)
+      @last_x = @x
       @x = x < 0 ? 0_u32 : (x > Tsh.res_x ? Tsh.res_x : x.to_u32)
     end
 
     def y=(y : Int)
+      @last_y = @y
       @y = y < 0 ? 0_u32 : (y > Tsh.res_y ? Tsh.res_y : y.to_u32)
     end
 
@@ -220,8 +230,16 @@ module Tsh
       y = (y*Raylib.get_frame_time)
       x = @x.to_f32 + x < 0 || @x.to_f32 + x + width > Tsh.res_x ? 0 : x
       y = @y.to_f32 + y < 0 || @y.to_f32 + y + height > Tsh.res_y ? 0 : y
+      @last_x = @x
       @x += x.round.to_i32
+      @last_y = @y
       @y += y.round.to_i32
+    end
+
+    # Sets the position to the previous x and y values
+    def unmove
+      @x = @last_x
+      @y = @last_y
     end
 
     # Rotates in *rot* direction, going clockwise
@@ -233,7 +251,7 @@ module Tsh
       Tsh.playthings.delete(self)
     end
 
-    def forward_vector : Raylib::Vector2
+    def up_vector : Raylib::Vector2
       return Raylib::Vector2.new(x: Math.cos((@angle - 90) * Raylib::DEG2RAD), y: Math.sin((@angle + 90) * Raylib::DEG2RAD))
     end
 

@@ -40,3 +40,4 @@ jobs:
           crystal build examples/bouncing_cube.cr
           crystal build examples/controllable_ship.cr
           crystal build examples/flipbook_animation.cr
+          crystal build examples/2d_walking.cr

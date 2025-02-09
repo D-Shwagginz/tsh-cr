@@ -17,6 +17,7 @@
 #  The main project file
 
 require "./engine.cr"
+require "../examples/2d_walking.cr"
 
 # The T(hirty) S(ix) H(undered) engine
 module Tsh
