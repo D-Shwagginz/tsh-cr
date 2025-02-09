@@ -10,6 +10,20 @@ module Tsh
     @@playthings
   end
 
+  @[Flags]
+  enum CollisionFlags
+    Player
+    Pickup
+
+    # Custom flags
+    Custom1
+    Custom2
+    Custom3
+    Custom4
+    Custom5
+    Custom6
+  end
+
   # A collection of indices to Tsh.color
   struct Sprite
     property data : Array(Array(UInt32)) = [] of Array(UInt32)
@@ -47,7 +61,7 @@ module Tsh
 
   # The generic class for anything in the engine
   class PlayThing
-    # The PlayThing's location.
+    # The PlayThing's location. Bottom left centered.
     # All ways to set clamp between 0 and Tsh.res_x/Tsh.res_y
     getter x : UInt32 = 0
     getter y : UInt32 = 0
@@ -62,24 +76,25 @@ module Tsh
     # An array of all sprites for the PlayThing to display
     getter sprites : Array(Sprite) = [] of Sprite
 
+    property collision_flags : CollisionFlags = CollisionFlags::None
+
+    property on_collide : Proc(PlayThing, PlayThing, Nil) = ->(pt : PlayThing, other : PlayThing) {}
+
     def initialize
       Tsh.playthings << self
     end
 
-    def initialize(x : Int, y : Int, sprite : Sprite)
+    def initialize(*, x : Int = 0, y : Int = 0,
+                   collision_flags : CollisionFlags = CollisionFlags::None,
+                   on_collide : Proc(PlayThing, PlayThing, Nil) = ->(pt : PlayThing, other : PlayThing) {},
+                   sprites : Array(Sprite) = [] of Sprite)
       Tsh.playthings << self
-      @x = x.to_u32
-      @y = y.to_u32
-      @sprites << sprite
-      @sprite = 0
-    end
-
-    def initialize(x : Int, y : Int, sprites : Array(Sprite))
-      Tsh.playthings << self
+      @collision_flags = collision_flags
+      @on_collide = on_collide
       @x = x.to_u32
       @y = y.to_u32
       @sprites = sprites
-      @sprite = 0
+      @sprite = 0 if @sprites.size > 0
     end
 
     def x=(x : UInt32)

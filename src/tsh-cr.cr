@@ -5,12 +5,28 @@ module Tsh
   VERSION = "0.1.0"
 end
 
-player = Tsh::PT.new(0, 0, Tsh::Sprite.new([
-  [1, 0, 0, 1],
-  [0],
-  [1, 0, 0, 1],
-  [0, 1, 1],
-]))
+def pickup(pt : Tsh::PlayThing, other : Tsh::PlayThing)
+  if other.collision_flags & Tsh::CollisionFlags::Player
+    pt.destroy
+  end
+end
+
+player = Tsh::PT.new(x: 0, y: 0, collision_flags: Tsh::CollisionFlags::Player, sprites: [
+  Tsh::Sprite.new([
+    [1, 0, 0, 1],
+    [0],
+    [1, 0, 0, 1],
+    [0, 1, 1],
+  ]),
+])
+
+Tsh::PT.new(x: 20, y: 20, collision_flags: Tsh::CollisionFlags::Pickup,
+  on_collide: ->pickup(Tsh::PlayThing, Tsh::PlayThing), sprites: [
+  Tsh::Sprite.new([
+    [1, 1],
+    [1, 1],
+  ]),
+])
 
 Tsh.background_color = Raylib::BLUE
 Tsh.play("Test", 40, 40, [Raylib::BLANK, Raylib::WHITE]) do
