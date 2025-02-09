@@ -15,7 +15,7 @@ module Tsh
     Player
     Pickup
 
-    # Custom flags
+    # Custom collision flags
     Custom1
     Custom2
     Custom3
@@ -61,6 +61,22 @@ module Tsh
 
   # The generic class for anything in the engine
   class PlayThing
+    @[Flags]
+    enum Flags
+      Invisible
+
+      # Custom flags
+      Custom1
+      Custom2
+      Custom3
+      Custom4
+      Custom5
+      Custom6
+    end
+
+    # The flags for the plaything
+    property flags : Flags = Flags::None
+
     # The PlayThing's location. Bottom left centered.
     # All ways to set clamp between 0 and Tsh.res_x/Tsh.res_y
     getter x : UInt32 = 0
@@ -76,8 +92,9 @@ module Tsh
     # An array of all sprites for the PlayThing to display
     getter sprites : Array(Sprite) = [] of Sprite
 
+    # The flags to use for collision detection
     property collision_flags : CollisionFlags = CollisionFlags::None
-
+    # Called when an overlap between this plaything (pt) and another plaything (other) occurs
     property on_collide : Proc(PlayThing, PlayThing, Nil) = ->(pt : PlayThing, other : PlayThing) {}
 
     def initialize

@@ -68,7 +68,7 @@ describe Tsh::PlayThing do
   end
 
   it "Should draw sprite and test colors" do
-    pt = Tsh::PlayThing.new(sprites: [Tsh::Sprite.new([[1,1],[1,0,1,1],[1]])])
+    pt = Tsh::PlayThing.new(sprites: [Tsh::Sprite.new([[1, 1], [1, 0, 1, 1], [1]])])
 
     pt.sprites[pt.sprite].width.should eq 4
     pt.sprites[pt.sprite].height.should eq 3
@@ -96,7 +96,7 @@ describe Tsh::PlayThing do
   it "Should collide" do
     collided = false
     pt1 = Tsh::PlayThing.new(sprites: [Tsh::Sprite.new([[1]])], collision_flags: Tsh::CollisionFlags::Player)
-    pt2 = Tsh::PlayThing.new(sprites: [Tsh::Sprite.new([[1]])], on_collide: ->(pt : Tsh::PlayThing, other : Tsh::PlayThing) { collided = true if (other.collision_flags & Tsh::CollisionFlags::Player).value != 0})
+    pt2 = Tsh::PlayThing.new(sprites: [Tsh::Sprite.new([[1]])], on_collide: ->(pt : Tsh::PlayThing, other : Tsh::PlayThing) { collided = true if (other.collision_flags & Tsh::CollisionFlags::Player).value != 0 })
 
     times_updated = 0
     Tsh.play("Spec", 100, 100, [] of Tsh::Color) do
@@ -117,7 +117,7 @@ describe Tsh::PlayThing do
   it "Shouldn't collide" do
     collided = false
     pt1 = Tsh::PlayThing.new(sprites: [Tsh::Sprite.new([[1]])], collision_flags: Tsh::CollisionFlags::Pickup)
-    pt2 = Tsh::PlayThing.new(sprites: [Tsh::Sprite.new([[1]])], on_collide: ->(pt : Tsh::PlayThing, other : Tsh::PlayThing) { collided = true if (other.collision_flags & Tsh::CollisionFlags::Player).value != 0})
+    pt2 = Tsh::PlayThing.new(sprites: [Tsh::Sprite.new([[1]])], on_collide: ->(pt : Tsh::PlayThing, other : Tsh::PlayThing) { collided = true if (other.collision_flags & Tsh::CollisionFlags::Player).value != 0 })
 
     times_updated = 0
     Tsh.play("Spec", 100, 100, [] of Tsh::Color) do
