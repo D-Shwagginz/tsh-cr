@@ -97,23 +97,23 @@ module Tsh
       @sprite = 0 if @sprites.size > 0
     end
 
-    def x=(x : UInt32)
-      @x = x < 0 ? 0_u32 : (x > res_x ? res_x : x)
+    def x=(x : Int)
+      @x = x < 0 ? 0_u32 : (x > Tsh.res_x ? Tsh.res_x : x.to_u32)
     end
 
-    def y=(y : UInt32)
-      @y = y < 0 ? 0_u32 : (y > res_y ? res_y : y)
+    def y=(y : Int)
+      @y = y < 0 ? 0_u32 : (y > Tsh.res_y ? Tsh.res_y : y.to_u32)
     end
 
     def angle=(angle : Float32)
-      @angle = angle < 0 ? -(angle.abs - (angle.abs // 360) * 360) : angle - (angle // 360) * 360
+      @angle = angle < 0 ? (360 - (angle.abs - (angle.abs // 360) * 360)) : angle - (angle // 360) * 360
     end
 
     def sprite=(sprite : Int32)
       @sprite = sprite < 0 ? 0 : (sprite >= sprites.size ? sprites.size - 1 : sprite)
     end
 
-    # Moves in x, y direction
+    # Moves in x, y direction. X and Y are speeds.
     def move(x : Int, y : Int)
       width = @sprite >= 0 ? @sprites[@sprite].width : 0
       height = @sprite >= 0 ? @sprites[@sprite].height : 0

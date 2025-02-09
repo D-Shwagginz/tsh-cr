@@ -24,6 +24,7 @@ module Tsh
       Tsh.set_color(i, color)
     end
 
+    Raylib.set_trace_log_level(Raylib::TraceLogLevel::Error)
     Raylib.set_config_flags(Raylib::ConfigFlags::WindowResizable | Raylib::ConfigFlags::VSyncHint)
     Raylib.init_window(640, 480, title)
     Raylib.set_window_min_size(@@res_x, @@res_y)
