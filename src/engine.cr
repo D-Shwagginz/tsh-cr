@@ -111,7 +111,7 @@ module Tsh
 
   # Starts the engine.
   # Yields a block to update the game
-  def self.play(title : String, @@res_x : UInt32, @@res_y : UInt32, colors : Array(Raylib::Color), &)
+  def self.play(title : String, @@res_x : UInt32, @@res_y : UInt32, colors : Array(Tsh::Color) = [] of Tsh::Color, &)
     colors.each.with_index do |color, i|
       break if i >= Tsh.colors.size
       Tsh.set_color(i, color)

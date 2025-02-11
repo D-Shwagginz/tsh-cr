@@ -18,7 +18,9 @@
 
 require "./engine.cr"
 
+require "../examples/space_invaders.cr"
+
 # The T(hirty) S(ix) H(undered) engine
 module Tsh
-  VERSION = "0.1.0"
+  VERSION = "0.2.0"
 end

@@ -52,8 +52,9 @@ module Tsh
   # Currently you can play a Tone on every waveform at once,
   # giving the ability to play 8 different sounding musical notes
   # at the same time.
-  # Attemps to play multiple notes on the same waveform at 
-  # the same time in one sound will yield unexpected results.
+  # Attemps to play multiple tones on the same waveform at
+  # the same time or playing over 8 tones in one note will 
+  # yield unexpected and possibly disastrous results.
   class Sound
     # A musical note and the waveform to play it on
     struct Tone
@@ -126,8 +127,10 @@ module Tsh
 
         Tsh.playing_sounds << self
         @current_note = 0
-        notes[@current_note].tones.each do |tone|
-          SunVox.send_event(Tsh.slot, @track, tone.note, 0, Tsh.generators[tone.waveform.value])
+        ticks = SunVox.ticks
+        tps = SunVox.ticks_per_second
+        notes[@current_note].tones.each.with_index do |tone, i|
+          SunVox.send_event(Tsh.slot, i + @track*Tsh.generators.size, tone.note, 0, Tsh.generators[tone.waveform.value])
         end
         @wait_time = Raylib.get_time + notes[@current_note].length
         @playing = true
@@ -138,6 +141,7 @@ module Tsh
     def stop
       Tsh.open_tracks[@track] = true
       Tsh.playing_sounds.delete(self)
+      @track = -1
       @wait_time -= Raylib.get_time
       @playing = false
     end
@@ -160,8 +164,8 @@ module Tsh
         end
 
         Tsh.playing_sounds << self
-        notes[@current_note].tones.each do |tone|
-          SunVox.send_event(Tsh.slot, @track, tone.note, 0, Tsh.generators[tone.waveform.value])
+        notes[@current_note].tones.each.with_index do |tone, i|
+          SunVox.send_event(Tsh.slot, i + @track*Tsh.generators.size, tone.note, 0, Tsh.generators[tone.waveform.value])
         end
         @wait_time += Raylib.get_time
         @playing = true
@@ -170,8 +174,8 @@ module Tsh
 
     protected def update
       if Raylib.get_time >= @wait_time
-        notes[@current_note].tones.each do |tone|
-          SunVox.send_event(Tsh.slot, @track, Tsh::Note::Off, 0, Tsh.generators[tone.waveform.value])
+        notes[@current_note].tones.each.with_index do |tone, i|
+          SunVox.send_event(Tsh.slot, i + @track*Tsh.generators.size, Tsh::Note::Off, 0, Tsh.generators[tone.waveform.value])
         end
         @current_note += 1
 
@@ -182,8 +186,8 @@ module Tsh
             return
           end
         end
-        notes[@current_note].tones.each do |tone|
-          SunVox.send_event(Tsh.slot, @track, tone.note, 0, Tsh.generators[tone.waveform.value])
+        notes[@current_note].tones.each.with_index do |tone, i|
+          SunVox.send_event(Tsh.slot, i + @track*Tsh.generators.size, tone.note, 0, Tsh.generators[tone.waveform.value])
         end
         @wait_time = Raylib.get_time + notes[@current_note].length
       end
@@ -200,7 +204,7 @@ module Tsh
       SunVox.connect_module(@@slot, @@generators[i], SunVox::OUTPUT_MODULE)
       waveform = i > 3 ? i + 1 : i # Skip over 4 (drawn)
       SunVox.send_event(@@slot, 0, SunVox::Note::None, 0, @@generators[i], ctl: 2, ctl_value: waveform)
-      SunVox.send_event(@@slot, 0, SunVox::Note::None, 0, @@generators[i], ctl: 6, ctl_value: MAX_SOUNDS)
+      SunVox.send_event(@@slot, 1, SunVox::Note::None, 0, @@generators[i], ctl: 6, ctl_value: MAX_SOUNDS)
     end
   end
 end
