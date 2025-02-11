@@ -11,29 +11,7 @@ jobs:
         uses: oprypin/install-crystal@v1
       - name: Install Crystal libs
         run: shards install
-      - name: Compile miniaudiohelpers.o
-        run: gcc -c -fPIC lib/raylib-cr/rsrc/miniaudiohelpers/miniaudiohelpers.c -o lib/raylib-cr/rsrc/miniaudiohelpers/miniaudiohelpers.o
-      - name: Compile libminiaudiohelpers.so
-        run: sudo gcc lib/raylib-cr/rsrc/miniaudiohelpers/miniaudiohelpers.o -shared -o /usr/local/lib/libminiaudiohelpers.so -lm
-      - name: Install miniaudiohelpers 1
-        run: sudo cp /usr/local/lib/libminiaudiohelpers.so /usr/lib/libminiaudiohelpers.so
-      - name: Install miniaudiohelpers 2
-        run: sudo ln -s /usr/lib/libminiaudiohelpers.so /lib/miniaudiohelpers.so
-      - name: Install raylib
-        run: git clone --depth 1 --branch 5.0 https://github.com/raysan5/raylib
-      - name: mk build dir
-        run: mkdir raylib/build
-      - name: install raylib deps
-        run: sudo apt-get install libasound2-dev libx11-dev libxrandr-dev libxi-dev libgl1-mesa-dev libglu1-mesa-dev libxcursor-dev libxinerama-dev
-      - name: cmake 1
-        run: cmake raylib -DBUILD_SHARED_LIBS=ON -DCMAKE_BUILD_TYPE=Release -B raylib/build 
-      - name: cmake 2
-        run: cmake --build raylib/build
-      - name: make install raylib
-        run: sudo make install -C raylib/build
-      - name: Install raylib 1
-        run: sudo cp /usr/local/lib/libraylib.so.4.5.0 /usr/lib/libraylib.so.450
-      - name: Install raylib 2
-        run: sudo ln -s /usr/lib/libraylib.so.450 /lib/raylib.so
+      - name: Install libs
+        run: rsrc/install_linux.sh
       - name: Run Tests
         run: crystal spec --tag gh-actions
