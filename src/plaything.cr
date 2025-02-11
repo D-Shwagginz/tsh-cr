@@ -33,6 +33,7 @@ module Tsh
     @@playthings_to_destroy
   end
 
+  # Flags for setting a PlayThing's collision
   @[Flags]
   enum CollisionFlags
     Player
@@ -49,7 +50,7 @@ module Tsh
     Custom6
   end
 
-  # A collection of indices to Tsh.color
+  # A collection of indices to Tsh::Color with a width and a height
   struct Sprite
     property data : Array(Array(UInt32)) = [] of Array(UInt32)
 
@@ -92,6 +93,7 @@ module Tsh
     property end_frame : Int32 = 0
     # The delay in seconds between frames
     property delay : Float64 = 0.0
+    # The current frame that the flipbook is on
     getter current_frame : Int32 = 0
     # Is the flipbook currently going? (Overwrites the PlayThing's *sprite* with *current_frame* if true)
     getter active : Bool = false
@@ -146,6 +148,7 @@ module Tsh
 
   # The generic class for anything in the engine
   class PlayThing
+    # Flags for more miscellaneous functions
     @[Flags]
     enum Flags
       Invisible
@@ -203,6 +206,7 @@ module Tsh
       Tsh.playthings << self
     end
 
+    # Creates the PlayThing and sets *sprite* to 0 if any sprites were given
     def initialize(*, x : Int = 0, y : Int = 0,
                    collision_flags : CollisionFlags = CollisionFlags::None,
                    on_collide : Proc(PlayThing, PlayThing, Nil) = ->(pt : PlayThing, other : PlayThing) {},
@@ -224,25 +228,30 @@ module Tsh
       @flags = flags
     end
 
+    # Sets the x position and clamps it between 0 and the screen's width
     def x=(x : Int)
       @last_x = @x
       @x = x < 0 ? 0_u32 : (x > Tsh.res_x ? Tsh.res_x : x.to_u32)
     end
 
+    # Sets the y position and clamps it between 0 and the screen's height
     def y=(y : Int)
       @last_y = @y
       @y = y < 0 ? 0_u32 : (y > Tsh.res_y ? Tsh.res_y : y.to_u32)
     end
 
+    # Sets the angle and removes all 360's from the number to ensure it is between 0 and 359
     def angle=(angle : Float32)
       @angle = angle < 0 ? (360 - (angle.abs - (angle.abs // 360) * 360)) : angle - (angle // 360) * 360
     end
 
+    # Sets the current sprite number in *sprites* to display
     def sprite=(sprite : Int32)
       @sprite = sprite < 0 ? 0 : (sprite >= sprites.size ? sprites.size - 1 : sprite)
     end
 
     # Moves in x, y direction. X and Y are speeds.
+    # Clamps between 0 and screen width/height
     def move(x : Int, y : Int)
       width = @sprite >= 0 ? @sprites[@sprite].width : 0
       height = @sprite >= 0 ? @sprites[@sprite].height : 0
@@ -265,29 +274,39 @@ module Tsh
       self.angle = @angle + rot * Raylib.get_frame_time
     end
 
+    # Destroys a plaything (No more displaying or collision calls)
     def destroy
       Tsh.playthings_to_destroy << self unless Tsh.playthings_to_destroy.includes?(self)
     end
 
+    # The upwards direction of the PlayThing.
+    # A PlayThing with 0 angle will have up_vector {0, 1}
     def up_vector : Raylib::Vector2
       return Raylib::Vector2.new(x: Math.cos((@angle - 90) * Raylib::DEG2RAD), y: Math.sin((@angle + 90) * Raylib::DEG2RAD))
     end
 
+    # The right direction of the PlayThing.
+    # A PlayThing with 0 angle will have right_vector {1, 0}
     def right_vector : Raylib::Vector2
       return Raylib::Vector2.new(x: Math.cos(@angle * Raylib::DEG2RAD), y: Math.sin(@angle * Raylib::DEG2RAD))
     end
 
+    # Internal drawing of the PlayThing
     protected def draw
+      # Follow the flipbook if it's active
       if flipbook.active
         @sprite = flipbook.current_frame
         @sprite = sprite < 0 ? 0 : (sprite >= sprites.size ? sprites.size - 1 : sprite)
       end
 
       if sprite >= 0 && !flags.includes?(Flags::Invisible)
+        # OpenGL Rotation
         RLGL.push_matrix
         RLGL.translate_f(@x.to_f32 + @sprites[@sprite].width/2, @y.to_f32 + @sprites[@sprite].height/2, 0)
         RLGL.rotate_f(@angle, 0, 0, -1)
         RLGL.translate_f(-@sprites[@sprite].width/2, -@sprites[@sprite].height/2, 0)
+
+        # Draw sprite's pixels
         sprites[sprite].data.each.with_index do |line, y|
           line.each.with_index do |color, x|
             color = color >= Tsh.colors.size ? Tsh.colors.size - 1 : color

@@ -20,6 +20,7 @@ require "libsunvox"
 require "raylib-cr"
 
 module Tsh
+  # The maximum amount of sound that can play at the same time. 1-16
   MAX_SOUNDS = 16
 
   alias Note = SunVox::Note
@@ -47,8 +48,16 @@ module Tsh
     @@playing_sounds
   end
 
+  # A collection of note data which can be played.
+  # Currently you can play a Tone on every waveform at once,
+  # giving the ability to play 8 different sounding musical notes
+  # at the same time.
+  # Attemps to play multiple notes on the same waveform at 
+  # the same time in one sound will yield unexpected results.
   class Sound
+    # A musical note and the waveform to play it on
     struct Tone
+      # The waveform to play the musical note on
       enum Waveform
         Triangle
         Saw
@@ -60,23 +69,31 @@ module Tsh
         PSin
       end
 
+      # The musical note to play
       property note : Tsh::Note
+      # The waveform to play it on
       property waveform : Waveform
 
       def initialize(@note : Tsh::Note, @waveform : Waveform)
       end
     end
 
+    # A collection of tones with a length to play them for
     struct Note
+      # The tones to play
       property tones : Array(Tone)
+      # How long to play them for
       property length : Float64
 
       def initialize(@tones : Array(Tone), @length : Float64)
       end
     end
 
+    # The notes for the sound to play
     getter notes : Array(Note) = [] of Note
+    # Is the sound currently playing?
     getter playing : Bool = false
+    # Loop the sound
     property looping : Bool = false
     @wait_time : Float64 = 0.0
     @current_note : Int32 = 0
@@ -90,6 +107,7 @@ module Tsh
       @track
     end
 
+    # Play the sound from the beginning
     def play
       if notes.size > 0 && !Tsh.playing_sounds.includes?(self)
         Tsh.open_tracks.each.with_index do |is_open, track|
@@ -116,6 +134,7 @@ module Tsh
       end
     end
 
+    # Stop the sound
     def stop
       Tsh.open_tracks[@track] = true
       Tsh.playing_sounds.delete(self)
@@ -123,6 +142,7 @@ module Tsh
       @playing = false
     end
 
+    # Resume the sound from where it was stopped
     def resume
       if notes.size > 0 && !Tsh.playing_sounds.includes?(self)
         Tsh.open_tracks.each.with_index do |is_open, track|
@@ -170,7 +190,8 @@ module Tsh
     end
   end
 
-  def self.sound_init
+  # Internal sound initialization
+  protected def self.sound_init
     SunVox.start_engine(config: "buffer=1280", no_debug_output: true, one_thread: true)
     @@slot = SunVox.open_slot(SunVox::Slot::Zero)
 

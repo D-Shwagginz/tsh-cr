@@ -58,5 +58,6 @@ Tsh.play("Controllable Ship", RES_X, RES_Y, [Tsh::BLANK, Tsh::WHITE]) do
   end
   if Tsh.key_down?(Tsh::Key::D)
     ship.rotate(PLAYER_TURN_SPEED)
+    puts ship.angle
   end
 end

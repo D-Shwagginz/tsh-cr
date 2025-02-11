@@ -59,6 +59,7 @@ module Tsh
   # A static array of Raylib colors of size *COLOR_COUNT*
   class_getter colors : Colors = Colors.new(Raylib::BLACK)
 
+  # Sets a color in *colors*. Needed because static arrays can not be passed through a function
   protected def self.set_color(i : Int, color : Raylib::Color)
     @@colors[i] = color
   end

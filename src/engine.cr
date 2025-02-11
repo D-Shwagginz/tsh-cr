@@ -54,27 +54,36 @@ module Tsh
   # Runs all collision checks
   def self.check_collisions
     if @@playthings.size > 1
+      # Skip last thing since everything will check against it anyway
       @@playthings[0..-2].each.with_index do |pt, i|
+        # Skip if no sprites
         next if pt.sprite == -1
 
+        # PlayThing to check's box
         pt_box = Raylib::Rectangle.new(x: pt.x,
           y: pt.y,
           width: pt.sprites[pt.sprite].width,
           height: pt.sprites[pt.sprite].height
         )
 
+        # Check every other play thing
         @@playthings[i + 1..].each do |other|
           next if other.sprite == -1
 
+          # PlayThing to check against's box
           other_box = Raylib::Rectangle.new(x: other.x,
             y: other.y,
             width: other.sprites[other.sprite].width,
             height: other.sprites[other.sprite].height
           )
 
+          # Overlap?
           if Raylib.check_collision_recs?(pt_box, other_box)
+            # Call all collisions
             pt.on_collide.call(pt, other)
             other.on_collide.call(other, pt)
+
+            # If not already colliding, call start collide
             if !pt.colliders.includes?(other)
               pt.colliders << other
               pt.on_collide_start.call(pt, other)
@@ -83,7 +92,9 @@ module Tsh
               other.colliders << pt
               other.on_collide_start.call(other, pt)
             end
+            # Not Overlapping
           else
+            # If previously overlapping, call end collide
             if pt.colliders.includes?(other)
               pt.colliders.delete(other)
               pt.on_collide_end.call(pt, other)

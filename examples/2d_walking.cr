@@ -26,8 +26,10 @@ JUMP_POWER   =   2
 JUMP_SPEED   = 0.2
 FALL_SPEED   =  40
 
+# Called when the player has a collision
 def player_collide(pt : Tsh::PlayThing, other : Tsh::PlayThing)
   if other.collision_flags.includes?(Tsh::CollisionFlags::Obstacle)
+    # Move the player back to previous position
     pt.unmove
   end
 end
@@ -47,6 +49,7 @@ player = Tsh::PlayThing.new(
   on_collide: ->player_collide(Tsh::PlayThing, Tsh::PlayThing),
   collision_flags: Tsh::CollisionFlags::Player)
 
+# Create ground blocks
 6.times do |i|
   Tsh::PlayThing.new(
     x: i * 5,
@@ -64,6 +67,7 @@ player = Tsh::PlayThing.new(
   )
 end
 
+# Create floating block
 Tsh::PlayThing.new(
   x: 10,
   y: 10,
