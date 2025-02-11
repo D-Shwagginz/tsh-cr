@@ -18,8 +18,6 @@
 
 require "./engine.cr"
 
-require "../examples/space_invaders.cr"
-
 # ## The T(hirty) S(ix) H(undered) engine
 #
 #  The primary module for the engine.
