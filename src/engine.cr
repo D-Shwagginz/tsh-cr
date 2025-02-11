@@ -18,6 +18,8 @@
 
 require "./plaything.cr"
 require "./colors.cr"
+require "./sounds.cr"
+require "libsunvox"
 
 module Tsh
   # The internal screen's resolution
@@ -39,14 +41,24 @@ module Tsh
     return Raylib.key_pressed?(key)
   end
 
+  # Returns the time since the game started
+  def self.game_time
+    return Raylib.get_time
+  end
+
+  # Returns the time since the last frame rendered
+  def self.delta_time
+    return Raylib.get_frame_time
+  end
+
   # Runs all collision checks
   def self.check_collisions
     if @@playthings.size > 1
       @@playthings[0..-2].each.with_index do |pt, i|
         next if pt.sprite == -1
 
-        pt_box = Raylib::Rectangle.new(x: pt.x + pt.sprites[pt.sprite].width/2 - 1,
-          y: pt.y + pt.sprites[pt.sprite].height/2,
+        pt_box = Raylib::Rectangle.new(x: pt.x,
+          y: pt.y,
           width: pt.sprites[pt.sprite].width,
           height: pt.sprites[pt.sprite].height
         )
@@ -54,8 +66,8 @@ module Tsh
         @@playthings[i + 1..].each do |other|
           next if other.sprite == -1
 
-          other_box = Raylib::Rectangle.new(x: other.x + other.sprites[other.sprite].width/2,
-            y: other.y + other.sprites[other.sprite].height/2,
+          other_box = Raylib::Rectangle.new(x: other.x,
+            y: other.y,
             width: other.sprites[other.sprite].width,
             height: other.sprites[other.sprite].height
           )
@@ -104,7 +116,12 @@ module Tsh
 
     Raylib.set_target_fps(60)
 
+    sound_init()
+
     while !Raylib.close_window?
+      # Sounds
+      @@playing_sounds.each { |sound| sound.update }
+
       # Flipbooks
       @@playthings.each { |pt| pt.flipbook.update if pt.flipbook.active }
 
@@ -112,6 +129,9 @@ module Tsh
       yield
 
       check_collisions
+
+      Tsh.playthings_to_destroy.each { |pt| Tsh.playthings.delete(pt) }
+      Tsh.playthings_to_destroy.clear
 
       # Letter/Pillow boxing scale
       scale_width = Raylib.get_screen_width / @@res_x
@@ -140,5 +160,6 @@ module Tsh
 
     Raylib.unload_render_texture(screen)
     Raylib.close_window
+    SunVox.stop_engine
   end
 end

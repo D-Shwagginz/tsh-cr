@@ -17,7 +17,7 @@
 #  The main project file
 
 require "./engine.cr"
-require "../examples/collision_trigger.cr"
+require "../examples/space_invaders.cr"
 
 # The T(hirty) S(ix) H(undered) engine
 module Tsh

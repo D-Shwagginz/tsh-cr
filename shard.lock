@@ -1,5 +1,9 @@
 version: 2.0
 shards:
+  libsunvox:
+    git: https://github.com/sol-vin/libsunvox.git
+    version: 0.9+git.commit.6a4d316eba8da71251388d8d9b493ae8e76f7ddb
+
   raylib-cr:
     git: https://github.com/sol-vin/raylib-cr.git
     version: 5.0+git.commit.bdd8916593c2e88ea5909380f2acd80d64a89648

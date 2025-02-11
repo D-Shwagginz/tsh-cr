@@ -43,3 +43,5 @@ jobs:
           crystal build examples/2d_walking.cr
           crystal build examples/collision.cr
           crystal build examples/collision_trigger.cr
+          crystal build examples/beeps.cr
+          crystal build examples/space_invaders.cr

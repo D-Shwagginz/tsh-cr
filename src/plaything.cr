@@ -23,9 +23,14 @@ module Tsh
   alias PT = PlayThing
 
   @@playthings : Array(PlayThing) = [] of PlayThing
+  @@playthings_to_destroy : Array(PlayThing) = [] of PlayThing
 
   protected def self.playthings
     @@playthings
+  end
+
+  protected def self.playthings_to_destroy
+    @@playthings_to_destroy
   end
 
   @[Flags]
@@ -33,6 +38,7 @@ module Tsh
     Player
     Pickup
     Obstacle
+    Enemy
 
     # Custom collision flags
     Custom1
@@ -242,12 +248,10 @@ module Tsh
       height = @sprite >= 0 ? @sprites[@sprite].height : 0
       x = (x*Raylib.get_frame_time)
       y = (y*Raylib.get_frame_time)
-      x = @x.to_f32 + x < 0 || @x.to_f32 + x + width > Tsh.res_x ? 0 : x
-      y = @y.to_f32 + y < 0 || @y.to_f32 + y + height > Tsh.res_y ? 0 : y
       @last_x = @x
-      @x += x.round.to_i32
       @last_y = @y
-      @y += y.round.to_i32
+      @x = @x.to_f32 + x < 0 ? 0_u32 : (@x.to_f32 + x + width > Tsh.res_x ? Tsh.res_x - width : @x + x.round.to_i32)
+      @y = @y.to_f32 + y < 0 ? 0_u32 : (@y.to_f32 + y + height > Tsh.res_y ? Tsh.res_y - height : @y + y.round.to_i32)
     end
 
     # Sets the position to the previous x and y values
@@ -262,7 +266,7 @@ module Tsh
     end
 
     def destroy
-      Tsh.playthings.delete(self)
+      Tsh.playthings_to_destroy << self unless Tsh.playthings_to_destroy.includes?(self)
     end
 
     def up_vector : Raylib::Vector2
