@@ -16,7 +16,9 @@ jobs:
       - name: Install Crystal libs
         run: shards install
       - name: Install libs
-        run: sudo ./rsrc/install_linux.sh
+        run: |
+          chmod +x ./rsrc/install_linux.sh
+          ./rsrc/install_linux.sh
       - name: Build site
         run: crystal docs
       - name: Deploy docs
