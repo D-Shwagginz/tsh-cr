@@ -1,8 +1,12 @@
-name: Run Tests
-on: [push, pull_request]
+name: Deploy docs
+on: 
+  push:
+    branches: 
+      - main
+      - master
 jobs:
   build:
-    name: Run Tests
+    name: Deploy docs
     runs-on: ubuntu-latest
     steps:
       - name: Download source
@@ -15,5 +19,12 @@ jobs:
         run: |
           chmod +x ./rsrc/install_linux.sh
           ./rsrc/install_linux.sh
-      - name: Run Tests
-        run: crystal spec --tag gh-actions
+      - name: Build site
+        run: crystal docs
+      - name: Deploy docs
+        uses: crazy-max/ghaction-github-pages@v1.2.5
+        with:
+          target_branch: gh-pages
+          build_dir: docs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

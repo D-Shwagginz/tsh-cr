@@ -1,0 +1,27 @@
+name: Build Examples
+on: [push, pull_request]
+jobs:
+  build:
+    name: Build Examples
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download source
+        uses: actions/checkout@v2
+      - name: Install Crystal
+        uses: oprypin/install-crystal@v1
+      - name: Install Crystal libs
+        run: shards install
+      - name: Install Libs
+        run: |
+          chmod +x ./rsrc/install_linux.sh
+          ./rsrc/install_linux.sh
+      - name: Build Examples
+        run: |
+          crystal build examples/bouncing_cube.cr
+          crystal build examples/controllable_ship.cr
+          crystal build examples/flipbook_animation.cr
+          crystal build examples/2d_walking.cr
+          crystal build examples/collision.cr
+          crystal build examples/collision_trigger.cr
+          crystal build examples/beeps.cr
+          crystal build examples/space_invaders.cr

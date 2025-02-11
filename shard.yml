@@ -1,5 +1,5 @@
 name: tsh-cr
-version: 0.1.0
+version: 0.2.0
 
 authors:
   - D. Shwagginz <devin@shwaggi.nz>
@@ -11,6 +11,8 @@ targets:
 dependencies:
   raylib-cr:
     github: sol-vin/raylib-cr
+  libsunvox:
+    github: sol-vin/libsunvox
 
 crystal: '>= 1.13.3'
 
