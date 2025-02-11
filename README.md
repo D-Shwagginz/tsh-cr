@@ -1,4 +1,4 @@
-[![Examples](https://github.com/D-Shwagginz/tsh-cr/actions/workflows/build-examples.yml.yml/badge.svg)](https://github.com/D-Shwagginz/tsh-cr/actions/workflows/build-examples.yml.yml)
+[![Examples](https://github.com/D-Shwagginz/tsh-cr/actions/workflows/build-examples.yml/badge.svg)](https://github.com/D-Shwagginz/tsh-cr/actions/workflows/build-examples.yml)
 [![Spec](https://github.com/D-Shwagginz/tsh-cr/actions/workflows/spec.yml/badge.svg)](https://github.com/D-Shwagginz/tsh-cr/actions/workflows/spec.yml)
 
 [![Static Badge](https://img.shields.io/badge/Check%20The-Docs-blue)](https://d-shwagginz.github.io/tsh-cr/)
