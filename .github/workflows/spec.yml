@@ -12,6 +12,6 @@ jobs:
       - name: Install Crystal libs
         run: shards install
       - name: Install libs
-        run: ls
+        run: ls rsrc/
       - name: Run Tests
         run: crystal spec --tag gh-actions
