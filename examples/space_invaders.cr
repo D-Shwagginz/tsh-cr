@@ -24,11 +24,11 @@ RES_Y = 220_u32
 PLAYER_SPEED  =  80
 MISSILE_SPEED = 120
 
-ALIEN_COLUMNS         = 10
-ALIEN_ROWS            =  8
+ALIEN_COLUMNS         = 8
+ALIEN_ROWS            =  6
 ALIEN_SPACING         =  4
 ALIEN_MOVE_DISTANCE_X =  4
-ALIEN_MOVE_DISTANCE_Y = 10
+ALIEN_MOVE_DISTANCE_Y =  8
 ALIEN_MOVE_SPEED      =  2
 
 # All varables that get used in local namespaces
@@ -353,7 +353,7 @@ Tsh.play("Space Invaders", RES_X, RES_Y, [Tsh::BLANK, Tsh::GREY, Tsh::GREEN, Tsh
         alien_direction *= -1
         aliens_levels_moved += 1
         # Speed up if needed
-        if aliens_levels_moved > 4
+        if aliens_levels_moved > 6
           alien_speed *= 2
           PublicVars.aliens.each { |row| row.each &.flipbook.delay = 1/(ALIEN_MOVE_SPEED*alien_speed) }
         end

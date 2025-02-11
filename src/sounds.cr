@@ -53,7 +53,7 @@ module Tsh
   # giving the ability to play 8 different sounding musical notes
   # at the same time.
   # Attemps to play multiple tones on the same waveform at
-  # the same time or playing over 8 tones in one note will 
+  # the same time or playing over 8 tones in one note will
   # yield unexpected and possibly disastrous results.
   class Sound
     # A musical note and the waveform to play it on

@@ -134,6 +134,9 @@ end
 Playing over 8 tones in one note or playing the same waveform more in more than one tone in a note
 will cause unexpected and possibly audio-breaking results. However it is allowed so feel free to experiment.
 
+For something like music which might require multiple of the same waveform, try to use multiple sounds
+and treat them as layers. The NES had 5 channels and only 2 of them were the same waveform.
+
 ### Examples
 
 In the examples folder you will find ways to use collision, movement,
