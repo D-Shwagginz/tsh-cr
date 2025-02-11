@@ -11,15 +11,15 @@ in the style of Atari 2600 games (1977) up to Gameboy games (1989)
 
 - If on windows you will need to run these to setup your work environment:
   - Powershell
-```powershell
-$env:LIB="${env:LIB};C:\tsh-cr"
-$env:PATH="${env:PATH};C:\tsh-cr"
-```
+    ```powershell
+    $env:LIB="${env:LIB};C:\tsh-cr"
+    $env:PATH="${env:PATH};C:\tsh-cr"
+    ```
   - Or cmd
-```cmd
-set PATH=%PATH%;C:\tsh-cr
-set LIB=%LIB%;C:\tsh-cr
-```
+    ```cmd
+    set PATH=%PATH%;C:\tsh-cr
+    set LIB=%LIB%;C:\tsh-cr
+    ```
 
 2. Add `tsh-cr` to your `shard.yml`:
 ```yml
