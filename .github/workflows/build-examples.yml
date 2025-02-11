@@ -12,7 +12,7 @@ jobs:
       - name: Install Crystal libs
         run: shards install
       - name: Install libs
-        run: rsrc/install_linux.sh
+        run: sudo rsrc/install_linux.sh
       - name: Build Examples
         run: |
           crystal build examples/bouncing_cube.cr
