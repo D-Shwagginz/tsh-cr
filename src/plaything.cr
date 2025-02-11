@@ -20,6 +20,7 @@ require "raylib-cr"
 require "raylib-cr/rlgl"
 
 module Tsh
+  # A shorthand for PlayThing
   alias PT = PlayThing
 
   @@playthings : Array(PlayThing) = [] of PlayThing
@@ -33,6 +34,11 @@ module Tsh
     @@playthings_to_destroy
   end
 
+  # Destroys every PlayThing
+  def self.destroy_all_playthings
+    @@playthings.each &.destroy
+  end
+
   # Flags for setting a PlayThing's collision
   @[Flags]
   enum CollisionFlags
@@ -41,7 +47,6 @@ module Tsh
     Obstacle
     Enemy
 
-    # Custom collision flags
     Custom1
     Custom2
     Custom3
@@ -52,6 +57,8 @@ module Tsh
 
   # A collection of indices to Tsh::Color with a width and a height
   struct Sprite
+    # The pixel data of the sprite.
+    # Each number is in index to `Tsh.colors`
     property data : Array(Array(UInt32)) = [] of Array(UInt32)
 
     def initialize(sprite : Array(Array(Int)))
@@ -65,12 +72,13 @@ module Tsh
       end
     end
 
-    def [](x : Int, y : Int)
+    # Gets a coordinate pixel in the sprite
+    def [](x : Int, y : Int) : UInt32
       return data[y][x]
     end
 
     # The size of the widest line in the sprite
-    def width
+    def width : Int32
       widest = 0
       @data.each do |x|
         widest = x.size > widest ? x.size : widest
@@ -80,7 +88,7 @@ module Tsh
     end
 
     # The height of the sprite
-    def height
+    def height : Int32
       return @data.size
     end
   end
@@ -153,7 +161,6 @@ module Tsh
     enum Flags
       Invisible
 
-      # Custom flags
       Custom1
       Custom2
       Custom3

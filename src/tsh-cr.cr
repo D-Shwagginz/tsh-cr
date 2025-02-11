@@ -20,7 +20,12 @@ require "./engine.cr"
 
 require "../examples/space_invaders.cr"
 
-# The T(hirty) S(ix) H(undered) engine
+# ## The T(hirty) S(ix) H(undered) engine
+#
+#  The primary module for the engine.
+#
+#  `Tsh.play()` and `Tsh::PlayThing` are the most
+#  used parts of the engine.
 module Tsh
   VERSION = "0.2.0"
 end

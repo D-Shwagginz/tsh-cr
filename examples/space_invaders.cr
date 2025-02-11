@@ -25,11 +25,11 @@ PLAYER_SPEED  =  80
 MISSILE_SPEED = 120
 
 ALIEN_COLUMNS         = 8
-ALIEN_ROWS            =  6
-ALIEN_SPACING         =  4
-ALIEN_MOVE_DISTANCE_X =  4
-ALIEN_MOVE_DISTANCE_Y =  8
-ALIEN_MOVE_SPEED      =  2
+ALIEN_ROWS            = 6
+ALIEN_SPACING         = 4
+ALIEN_MOVE_DISTANCE_X = 4
+ALIEN_MOVE_DISTANCE_Y = 8
+ALIEN_MOVE_SPEED      = 2
 
 # All varables that get used in local namespaces
 module PublicVars

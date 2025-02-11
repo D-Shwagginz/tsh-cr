@@ -32,22 +32,22 @@ module Tsh
   alias Key = Raylib::KeyboardKey
 
   # Checks if a key is currently down
-  def self.key_down?(key : Key)
+  def self.key_down?(key : Key) : Bool
     return Raylib.key_down?(key)
   end
 
   # Checks if a key has been pressed
-  def self.key_pressed?(key : Key)
+  def self.key_pressed?(key : Key) : Bool
     return Raylib.key_pressed?(key)
   end
 
   # Returns the time since the game started
-  def self.game_time
+  def self.game_time : Float64
     return Raylib.get_time
   end
 
   # Returns the time since the last frame rendered
-  def self.delta_time
+  def self.delta_time : Float64
     return Raylib.get_frame_time
   end
 
