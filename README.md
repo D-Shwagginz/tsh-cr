@@ -3,7 +3,7 @@
 
 [![Static Badge](https://img.shields.io/badge/Check%20The-Docs-blue)](https://d-shwagginz.github.io/tsh-cr/)
 
-# T(wenty) S(ix) h(undred) - CR(ystal)
+# T(wenty) S(ix) h(undred) - Cr(ystal)
 
 An easy to use game library focused on creating 2d games
 in the style of Atari 2600 games (1977) up to Gameboy games (1989)
