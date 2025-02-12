@@ -18,7 +18,7 @@
 
 require "./engine.cr"
 
-# ## The T(hirty) S(ix) H(undered) engine
+# ## The T(hirty) S(ix) h(undred) engine
 #
 #  The primary module for the engine.
 #
