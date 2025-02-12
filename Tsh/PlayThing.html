@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Crystal Docs 1.14.0">
+<meta name="crystal_docs.project_version" content="master-dev">
+<meta name="crystal_docs.project_name" content="tsh-cr">
+
+
+
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/doc.js"></script>
+
+  <meta name="repository-name" content="tsh-cr">
+  <title>Tsh::PlayThing - tsh-cr master-dev</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill="currentColor" fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<input type="checkbox" id="sidebar-btn">
+<label for="sidebar-btn" id="sidebar-btn-label">
+  <svg class="open" xmlns="http://www.w3.org/2000/svg" height="2em" width="2em" viewBox="0 0 512 512"><title>Open Sidebar</title><path fill="currentColor" d="M80 96v64h352V96H80zm0 112v64h352v-64H80zm0 112v64h352v-64H80z"></path></svg>
+  <svg class="close" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512"><title>Close Sidebar</title><path fill="currentColor" d="m118.6 73.4-45.2 45.2L210.7 256 73.4 393.4l45.2 45.2L256 301.3l137.4 137.3 45.2-45.2L301.3 256l137.3-137.4-45.2-45.2L256 210.7Z"></path></svg>
+</label>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../index.html">
+          tsh-cr
+        </a>
+      </h1>
+
+      <span class="project-version">
+        master-dev
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="tsh-cr/Tsh" data-name="tsh">
+      <a href="../Tsh.html">Tsh</a>
+      
+        <ul>
+  
+  <li class=" " data-id="tsh-cr/Tsh/CollisionFlags" data-name="tsh::collisionflags">
+      <a href="../Tsh/CollisionFlags.html">CollisionFlags</a>
+      
+    </li>
+  
+  <li class=" " data-id="tsh-cr/Tsh/Flipbook" data-name="tsh::flipbook">
+      <a href="../Tsh/Flipbook.html">Flipbook</a>
+      
+    </li>
+  
+  <li class=" " data-id="tsh-cr/Tsh/Key" data-name="tsh::key">
+      <a href="../Tsh/Key.html">Key</a>
+      
+    </li>
+  
+  <li class=" " data-id="tsh-cr/Tsh/Note" data-name="tsh::note">
+      <a href="../Tsh/Note.html">Note</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="tsh-cr/Tsh/PlayThing" data-name="tsh::plaything">
+      <a href="../Tsh/PlayThing.html">PlayThing</a>
+      
+        <ul>
+  
+  <li class=" " data-id="tsh-cr/Tsh/PlayThing/Flags" data-name="tsh::plaything::flags">
+      <a href="../Tsh/PlayThing/Flags.html">Flags</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="tsh-cr/Tsh/PT" data-name="tsh::pt">
+      <a href="../Tsh/PT.html">PT</a>
+      
+    </li>
+  
+  <li class="parent " data-id="tsh-cr/Tsh/Sound" data-name="tsh::sound">
+      <a href="../Tsh/Sound.html">Sound</a>
+      
+        <ul>
+  
+  <li class=" " data-id="tsh-cr/Tsh/Sound/Note" data-name="tsh::sound::note">
+      <a href="../Tsh/Sound/Note.html">Note</a>
+      
+    </li>
+  
+  <li class="parent " data-id="tsh-cr/Tsh/Sound/Tone" data-name="tsh::sound::tone">
+      <a href="../Tsh/Sound/Tone.html">Tone</a>
+      
+        <ul>
+  
+  <li class=" " data-id="tsh-cr/Tsh/Sound/Tone/Waveform" data-name="tsh::sound::tone::waveform">
+      <a href="../Tsh/Sound/Tone/Waveform.html">Waveform</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="tsh-cr/Tsh/Sprite" data-name="tsh::sprite">
+      <a href="../Tsh/Sprite.html">Sprite</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> Tsh::<wbr>PlayThing
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Tsh/PlayThing.html">Tsh::PlayThing</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>The generic class for anything in the engine</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      plaything.cr
+    
+    <br/>
+  
+
+
+
+
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new-class-method" class="signature"><strong>.new</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28%2A%2Cx%3AInt%3D0%2Cy%3AInt%3D0%2Ccollision_flags%3ACollisionFlags%3DCollisionFlags%3A%3ANone%2Con_collide%3AProc%28PlayThing%2CPlayThing%2CNil%29%3D-%3E%28pt%3APlayThing%2Cother%3APlayThing%29do%0Aend%2Con_collide_start%3AProc%28PlayThing%2CPlayThing%2CNil%29%3D-%3E%28pt%3APlayThing%2Cother%3APlayThing%29do%0Aend%2Con_collide_end%3AProc%28PlayThing%2CPlayThing%2CNil%29%3D-%3E%28pt%3APlayThing%2Cother%3APlayThing%29do%0Aend%2Csprites%3AArray%28Sprite%29%3D%5B%5DofSprite%2Cflags%3AFlags%3DFlags%3A%3ANone%29-class-method" class="signature"><strong>.new</strong>(*, x : Int = <span class="n">0</span>, y : Int = <span class="n">0</span>, collision_flags : CollisionFlags = <span class="t">CollisionFlags</span><span class="t">::</span><span class="t">None</span>, on_collide : Proc(PlayThing, PlayThing, Nil) = <span class="o">-&gt;</span>(pt : <span class="t">PlayThing</span>, other : <span class="t">PlayThing</span>) <span class="k">do</span>
+<span class="k">end</span>, on_collide_start : Proc(PlayThing, PlayThing, Nil) = <span class="o">-&gt;</span>(pt : <span class="t">PlayThing</span>, other : <span class="t">PlayThing</span>) <span class="k">do</span>
+<span class="k">end</span>, on_collide_end : Proc(PlayThing, PlayThing, Nil) = <span class="o">-&gt;</span>(pt : <span class="t">PlayThing</span>, other : <span class="t">PlayThing</span>) <span class="k">do</span>
+<span class="k">end</span>, sprites : Array(Sprite) = <span class="o">[]</span> <span class="k">of</span> <span class="t">Sprite</span>, flags : Flags = <span class="t">Flags</span><span class="t">::</span><span class="t">None</span>)</a>
+        
+          <div class="summary"><p>Creates the PlayThing and sets <em>sprite</em> to 0 if any sprites were given</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#angle%3AFloat32-instance-method" class="signature"><strong>#angle</strong> : Float32</a>
+        
+          <div class="summary"><p>The PlayThing's angle in degrees.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#angle%3D%28angle%3AFloat32%29-instance-method" class="signature"><strong>#angle=</strong>(angle : Float32)</a>
+        
+          <div class="summary"><p>Sets the angle and removes all 360's from the number to ensure it is between 0 and 359</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#collision_flags%3ACollisionFlags-instance-method" class="signature"><strong>#collision_flags</strong> : CollisionFlags</a>
+        
+          <div class="summary"><p>The flags to use for collision detection</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#collision_flags%3D%28collision_flags%3ACollisionFlags%29-instance-method" class="signature"><strong>#collision_flags=</strong>(collision_flags : CollisionFlags)</a>
+        
+          <div class="summary"><p>The flags to use for collision detection</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#destroy-instance-method" class="signature"><strong>#destroy</strong></a>
+        
+          <div class="summary"><p>Destroys a plaything (No more displaying or collision calls)</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#flags%3AFlags-instance-method" class="signature"><strong>#flags</strong> : Flags</a>
+        
+          <div class="summary"><p>The flags for the plaything</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#flags%3D%28flags%3AFlags%29-instance-method" class="signature"><strong>#flags=</strong>(flags : Flags)</a>
+        
+          <div class="summary"><p>The flags for the plaything</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#flipbook%3AFlipbook-instance-method" class="signature"><strong>#flipbook</strong> : Flipbook</a>
+        
+          <div class="summary"><p>The flipbook to animate the sprites.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#flipbook%3D%28flipbook%3AFlipbook%29-instance-method" class="signature"><strong>#flipbook=</strong>(flipbook : Flipbook)</a>
+        
+          <div class="summary"><p>The flipbook to animate the sprites.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#move%28x%3AInt%2Cy%3AInt%29-instance-method" class="signature"><strong>#move</strong>(x : Int, y : Int)</a>
+        
+          <div class="summary"><p>Moves in x, y direction.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#on_collide%3AProc%28PlayThing%2CPlayThing%2CNil%29-instance-method" class="signature"><strong>#on_collide</strong> : Proc(PlayThing, PlayThing, Nil)</a>
+        
+          <div class="summary"><p>Called when an overlap between this plaything (pt) and another plaything (other) occurs</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#on_collide%3D%28on_collide%3AProc%28PlayThing%2CPlayThing%2CNil%29%29-instance-method" class="signature"><strong>#on_collide=</strong>(on_collide : Proc(PlayThing, PlayThing, Nil))</a>
+        
+          <div class="summary"><p>Called when an overlap between this plaything (pt) and another plaything (other) occurs</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#on_collide_end%3AProc%28PlayThing%2CPlayThing%2CNil%29-instance-method" class="signature"><strong>#on_collide_end</strong> : Proc(PlayThing, PlayThing, Nil)</a>
+        
+          <div class="summary"><p>Called once when an overlap stops</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#on_collide_end%3D%28on_collide_end%3AProc%28PlayThing%2CPlayThing%2CNil%29%29-instance-method" class="signature"><strong>#on_collide_end=</strong>(on_collide_end : Proc(PlayThing, PlayThing, Nil))</a>
+        
+          <div class="summary"><p>Called once when an overlap stops</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#on_collide_start%3AProc%28PlayThing%2CPlayThing%2CNil%29-instance-method" class="signature"><strong>#on_collide_start</strong> : Proc(PlayThing, PlayThing, Nil)</a>
+        
+          <div class="summary"><p>Called once when an overlap starts</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#on_collide_start%3D%28on_collide_start%3AProc%28PlayThing%2CPlayThing%2CNil%29%29-instance-method" class="signature"><strong>#on_collide_start=</strong>(on_collide_start : Proc(PlayThing, PlayThing, Nil))</a>
+        
+          <div class="summary"><p>Called once when an overlap starts</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#right_vector%3ARaylib%3A%3AVector2-instance-method" class="signature"><strong>#right_vector</strong> : Raylib::Vector2</a>
+        
+          <div class="summary"><p>The right direction of the PlayThing.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#rotate%28rot%3AFloat32%29-instance-method" class="signature"><strong>#rotate</strong>(rot : Float32)</a>
+        
+          <div class="summary"><p>Rotates in <em>rot</em> direction, going clockwise</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#sprite%3AInt32-instance-method" class="signature"><strong>#sprite</strong> : Int32</a>
+        
+          <div class="summary"><p>The sprite to display from <em>sprites</em></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#sprite%3D%28sprite%3AInt32%29-instance-method" class="signature"><strong>#sprite=</strong>(sprite : Int32)</a>
+        
+          <div class="summary"><p>Sets the current sprite number in <em>sprites</em> to display</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#sprites%3AArray%28Sprite%29-instance-method" class="signature"><strong>#sprites</strong> : Array(Sprite)</a>
+        
+          <div class="summary"><p>An array of all sprites for the PlayThing to display</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#unmove-instance-method" class="signature"><strong>#unmove</strong></a>
+        
+          <div class="summary"><p>Sets the position to the previous x and y values</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#up_vector%3ARaylib%3A%3AVector2-instance-method" class="signature"><strong>#up_vector</strong> : Raylib::Vector2</a>
+        
+          <div class="summary"><p>The upwards direction of the PlayThing.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#x%3AUInt32-instance-method" class="signature"><strong>#x</strong> : UInt32</a>
+        
+          <div class="summary"><p>The PlayThing's location.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#x%3D%28x%3AInt%29-instance-method" class="signature"><strong>#x=</strong>(x : Int)</a>
+        
+          <div class="summary"><p>Sets the x position and clamps it between 0 and the screen's width</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#y%3AUInt32-instance-method" class="signature"><strong>#y</strong> : UInt32</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#y%3D%28y%3AInt%29-instance-method" class="signature"><strong>#y=</strong>(y : Int)</a>
+        
+          <div class="summary"><p>Sets the y position and clamps it between 0 and the screen's height</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>
+
+        <a class="method-permalink" href="#new-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(*,x:Int=0,y:Int=0,collision_flags:CollisionFlags=CollisionFlags::None,on_collide:Proc(PlayThing,PlayThing,Nil)=-&gt;(pt:PlayThing,other:PlayThing)do
+end,on_collide_start:Proc(PlayThing,PlayThing,Nil)=-&gt;(pt:PlayThing,other:PlayThing)do
+end,on_collide_end:Proc(PlayThing,PlayThing,Nil)=-&gt;(pt:PlayThing,other:PlayThing)do
+end,sprites:Array(Sprite)=[]ofSprite,flags:Flags=Flags::None)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(*, x : Int = <span class="n">0</span>, y : Int = <span class="n">0</span>, collision_flags : <a href="../Tsh/CollisionFlags.html">CollisionFlags</a> = <span class="t">CollisionFlags</span><span class="t">::</span><span class="t">None</span>, on_collide : Proc(<a href="../Tsh/PlayThing.html">PlayThing</a>, <a href="../Tsh/PlayThing.html">PlayThing</a>, Nil) = <span class="o">-&gt;</span>(pt : <span class="t">PlayThing</span>, other : <span class="t">PlayThing</span>) <span class="k">do</span>
+<span class="k">end</span>, on_collide_start : Proc(<a href="../Tsh/PlayThing.html">PlayThing</a>, <a href="../Tsh/PlayThing.html">PlayThing</a>, Nil) = <span class="o">-&gt;</span>(pt : <span class="t">PlayThing</span>, other : <span class="t">PlayThing</span>) <span class="k">do</span>
+<span class="k">end</span>, on_collide_end : Proc(<a href="../Tsh/PlayThing.html">PlayThing</a>, <a href="../Tsh/PlayThing.html">PlayThing</a>, Nil) = <span class="o">-&gt;</span>(pt : <span class="t">PlayThing</span>, other : <span class="t">PlayThing</span>) <span class="k">do</span>
+<span class="k">end</span>, sprites : Array(<a href="../Tsh/Sprite.html">Sprite</a>) = <span class="o">[]</span> <span class="k">of</span> <span class="t">Sprite</span>, flags : <a href="../Tsh/PlayThing/Flags.html">Flags</a> = <span class="t">Flags</span><span class="t">::</span><span class="t">None</span>)
+
+        <a class="method-permalink" href="#new%28%2A%2Cx%3AInt%3D0%2Cy%3AInt%3D0%2Ccollision_flags%3ACollisionFlags%3DCollisionFlags%3A%3ANone%2Con_collide%3AProc%28PlayThing%2CPlayThing%2CNil%29%3D-%3E%28pt%3APlayThing%2Cother%3APlayThing%29do%0Aend%2Con_collide_start%3AProc%28PlayThing%2CPlayThing%2CNil%29%3D-%3E%28pt%3APlayThing%2Cother%3APlayThing%29do%0Aend%2Con_collide_end%3AProc%28PlayThing%2CPlayThing%2CNil%29%3D-%3E%28pt%3APlayThing%2Cother%3APlayThing%29do%0Aend%2Csprites%3AArray%28Sprite%29%3D%5B%5DofSprite%2Cflags%3AFlags%3DFlags%3A%3ANone%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Creates the PlayThing and sets <em>sprite</em> to 0 if any sprites were given</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="angle:Float32-instance-method">
+      <div class="signature">
+        
+        def <strong>angle</strong> : Float32
+
+        <a class="method-permalink" href="#angle%3AFloat32-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The PlayThing's angle in degrees.
+0 points up.
+All ways to set will keep the value between 0 and 360</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="angle=(angle:Float32)-instance-method">
+      <div class="signature">
+        
+        def <strong>angle=</strong>(angle : Float32)
+
+        <a class="method-permalink" href="#angle%3D%28angle%3AFloat32%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Sets the angle and removes all 360's from the number to ensure it is between 0 and 359</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="collision_flags:CollisionFlags-instance-method">
+      <div class="signature">
+        
+        def <strong>collision_flags</strong> : <a href="../Tsh/CollisionFlags.html">CollisionFlags</a>
+
+        <a class="method-permalink" href="#collision_flags%3ACollisionFlags-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The flags to use for collision detection</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="collision_flags=(collision_flags:CollisionFlags)-instance-method">
+      <div class="signature">
+        
+        def <strong>collision_flags=</strong>(collision_flags : <a href="../Tsh/CollisionFlags.html">CollisionFlags</a>)
+
+        <a class="method-permalink" href="#collision_flags%3D%28collision_flags%3ACollisionFlags%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The flags to use for collision detection</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="destroy-instance-method">
+      <div class="signature">
+        
+        def <strong>destroy</strong>
+
+        <a class="method-permalink" href="#destroy-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Destroys a plaything (No more displaying or collision calls)</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="flags:Flags-instance-method">
+      <div class="signature">
+        
+        def <strong>flags</strong> : <a href="../Tsh/PlayThing/Flags.html">Flags</a>
+
+        <a class="method-permalink" href="#flags%3AFlags-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The flags for the plaything</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="flags=(flags:Flags)-instance-method">
+      <div class="signature">
+        
+        def <strong>flags=</strong>(flags : <a href="../Tsh/PlayThing/Flags.html">Flags</a>)
+
+        <a class="method-permalink" href="#flags%3D%28flags%3AFlags%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The flags for the plaything</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="flipbook:Flipbook-instance-method">
+      <div class="signature">
+        
+        def <strong>flipbook</strong> : <a href="../Tsh/Flipbook.html">Flipbook</a>
+
+        <a class="method-permalink" href="#flipbook%3AFlipbook-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The flipbook to animate the sprites. Will always overwrite <em>sprite</em> if active</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="flipbook=(flipbook:Flipbook)-instance-method">
+      <div class="signature">
+        
+        def <strong>flipbook=</strong>(flipbook : <a href="../Tsh/Flipbook.html">Flipbook</a>)
+
+        <a class="method-permalink" href="#flipbook%3D%28flipbook%3AFlipbook%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The flipbook to animate the sprites. Will always overwrite <em>sprite</em> if active</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="move(x:Int,y:Int)-instance-method">
+      <div class="signature">
+        
+        def <strong>move</strong>(x : Int, y : Int)
+
+        <a class="method-permalink" href="#move%28x%3AInt%2Cy%3AInt%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Moves in x, y direction. X and Y are speeds.
+Clamps between 0 and screen width/height</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="on_collide:Proc(PlayThing,PlayThing,Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>on_collide</strong> : Proc(<a href="../Tsh/PlayThing.html">PlayThing</a>, <a href="../Tsh/PlayThing.html">PlayThing</a>, Nil)
+
+        <a class="method-permalink" href="#on_collide%3AProc%28PlayThing%2CPlayThing%2CNil%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Called when an overlap between this plaything (pt) and another plaything (other) occurs</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="on_collide=(on_collide:Proc(PlayThing,PlayThing,Nil))-instance-method">
+      <div class="signature">
+        
+        def <strong>on_collide=</strong>(on_collide : Proc(<a href="../Tsh/PlayThing.html">PlayThing</a>, <a href="../Tsh/PlayThing.html">PlayThing</a>, Nil))
+
+        <a class="method-permalink" href="#on_collide%3D%28on_collide%3AProc%28PlayThing%2CPlayThing%2CNil%29%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Called when an overlap between this plaything (pt) and another plaything (other) occurs</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="on_collide_end:Proc(PlayThing,PlayThing,Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>on_collide_end</strong> : Proc(<a href="../Tsh/PlayThing.html">PlayThing</a>, <a href="../Tsh/PlayThing.html">PlayThing</a>, Nil)
+
+        <a class="method-permalink" href="#on_collide_end%3AProc%28PlayThing%2CPlayThing%2CNil%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Called once when an overlap stops</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="on_collide_end=(on_collide_end:Proc(PlayThing,PlayThing,Nil))-instance-method">
+      <div class="signature">
+        
+        def <strong>on_collide_end=</strong>(on_collide_end : Proc(<a href="../Tsh/PlayThing.html">PlayThing</a>, <a href="../Tsh/PlayThing.html">PlayThing</a>, Nil))
+
+        <a class="method-permalink" href="#on_collide_end%3D%28on_collide_end%3AProc%28PlayThing%2CPlayThing%2CNil%29%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Called once when an overlap stops</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="on_collide_start:Proc(PlayThing,PlayThing,Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>on_collide_start</strong> : Proc(<a href="../Tsh/PlayThing.html">PlayThing</a>, <a href="../Tsh/PlayThing.html">PlayThing</a>, Nil)
+
+        <a class="method-permalink" href="#on_collide_start%3AProc%28PlayThing%2CPlayThing%2CNil%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Called once when an overlap starts</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="on_collide_start=(on_collide_start:Proc(PlayThing,PlayThing,Nil))-instance-method">
+      <div class="signature">
+        
+        def <strong>on_collide_start=</strong>(on_collide_start : Proc(<a href="../Tsh/PlayThing.html">PlayThing</a>, <a href="../Tsh/PlayThing.html">PlayThing</a>, Nil))
+
+        <a class="method-permalink" href="#on_collide_start%3D%28on_collide_start%3AProc%28PlayThing%2CPlayThing%2CNil%29%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Called once when an overlap starts</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="right_vector:Raylib::Vector2-instance-method">
+      <div class="signature">
+        
+        def <strong>right_vector</strong> : Raylib::Vector2
+
+        <a class="method-permalink" href="#right_vector%3ARaylib%3A%3AVector2-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The right direction of the PlayThing.
+A PlayThing with 0 angle will have right_vector {1, 0}</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="rotate(rot:Float32)-instance-method">
+      <div class="signature">
+        
+        def <strong>rotate</strong>(rot : Float32)
+
+        <a class="method-permalink" href="#rotate%28rot%3AFloat32%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Rotates in <em>rot</em> direction, going clockwise</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="sprite:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>sprite</strong> : Int32
+
+        <a class="method-permalink" href="#sprite%3AInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The sprite to display from <em>sprites</em></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="sprite=(sprite:Int32)-instance-method">
+      <div class="signature">
+        
+        def <strong>sprite=</strong>(sprite : Int32)
+
+        <a class="method-permalink" href="#sprite%3D%28sprite%3AInt32%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Sets the current sprite number in <em>sprites</em> to display</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="sprites:Array(Sprite)-instance-method">
+      <div class="signature">
+        
+        def <strong>sprites</strong> : Array(<a href="../Tsh/Sprite.html">Sprite</a>)
+
+        <a class="method-permalink" href="#sprites%3AArray%28Sprite%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>An array of all sprites for the PlayThing to display</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="unmove-instance-method">
+      <div class="signature">
+        
+        def <strong>unmove</strong>
+
+        <a class="method-permalink" href="#unmove-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Sets the position to the previous x and y values</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="up_vector:Raylib::Vector2-instance-method">
+      <div class="signature">
+        
+        def <strong>up_vector</strong> : Raylib::Vector2
+
+        <a class="method-permalink" href="#up_vector%3ARaylib%3A%3AVector2-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The upwards direction of the PlayThing.
+A PlayThing with 0 angle will have up_vector {0, 1}</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="x:UInt32-instance-method">
+      <div class="signature">
+        
+        def <strong>x</strong> : UInt32
+
+        <a class="method-permalink" href="#x%3AUInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The PlayThing's location. Bottom left centered.
+All ways to set clamp between 0 and Tsh.res_x/Tsh.res_y</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="x=(x:Int)-instance-method">
+      <div class="signature">
+        
+        def <strong>x=</strong>(x : Int)
+
+        <a class="method-permalink" href="#x%3D%28x%3AInt%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Sets the x position and clamps it between 0 and the screen's width</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="y:UInt32-instance-method">
+      <div class="signature">
+        
+        def <strong>y</strong> : UInt32
+
+        <a class="method-permalink" href="#y%3AUInt32-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="y=(y:Int)-instance-method">
+      <div class="signature">
+        
+        def <strong>y=</strong>(y : Int)
+
+        <a class="method-permalink" href="#y%3D%28y%3AInt%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Sets the y position and clamps it between 0 and the screen's height</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Crystal Docs 1.14.0">
+<meta name="crystal_docs.project_version" content="master-dev">
+<meta name="crystal_docs.project_name" content="tsh-cr">
+
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/doc.js"></script>
+
+  <meta name="repository-name" content="tsh-cr">
+  <title>Tsh - tsh-cr master-dev</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill="currentColor" fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<input type="checkbox" id="sidebar-btn">
+<label for="sidebar-btn" id="sidebar-btn-label">
+  <svg class="open" xmlns="http://www.w3.org/2000/svg" height="2em" width="2em" viewBox="0 0 512 512"><title>Open Sidebar</title><path fill="currentColor" d="M80 96v64h352V96H80zm0 112v64h352v-64H80zm0 112v64h352v-64H80z"></path></svg>
+  <svg class="close" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512"><title>Close Sidebar</title><path fill="currentColor" d="m118.6 73.4-45.2 45.2L210.7 256 73.4 393.4l45.2 45.2L256 301.3l137.4 137.3 45.2-45.2L301.3 256l137.3-137.4-45.2-45.2L256 210.7Z"></path></svg>
+</label>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="index.html">
+          tsh-cr
+        </a>
+      </h1>
+
+      <span class="project-version">
+        master-dev
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="tsh-cr/Tsh" data-name="tsh">
+      <a href="Tsh.html">Tsh</a>
+      
+        <ul>
+  
+  <li class=" " data-id="tsh-cr/Tsh/CollisionFlags" data-name="tsh::collisionflags">
+      <a href="Tsh/CollisionFlags.html">CollisionFlags</a>
+      
+    </li>
+  
+  <li class=" " data-id="tsh-cr/Tsh/Flipbook" data-name="tsh::flipbook">
+      <a href="Tsh/Flipbook.html">Flipbook</a>
+      
+    </li>
+  
+  <li class=" " data-id="tsh-cr/Tsh/Key" data-name="tsh::key">
+      <a href="Tsh/Key.html">Key</a>
+      
+    </li>
+  
+  <li class=" " data-id="tsh-cr/Tsh/Note" data-name="tsh::note">
+      <a href="Tsh/Note.html">Note</a>
+      
+    </li>
+  
+  <li class="parent " data-id="tsh-cr/Tsh/PlayThing" data-name="tsh::plaything">
+      <a href="Tsh/PlayThing.html">PlayThing</a>
+      
+        <ul>
+  
+  <li class=" " data-id="tsh-cr/Tsh/PlayThing/Flags" data-name="tsh::plaything::flags">
+      <a href="Tsh/PlayThing/Flags.html">Flags</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="tsh-cr/Tsh/PT" data-name="tsh::pt">
+      <a href="Tsh/PT.html">PT</a>
+      
+    </li>
+  
+  <li class="parent " data-id="tsh-cr/Tsh/Sound" data-name="tsh::sound">
+      <a href="Tsh/Sound.html">Sound</a>
+      
+        <ul>
+  
+  <li class=" " data-id="tsh-cr/Tsh/Sound/Note" data-name="tsh::sound::note">
+      <a href="Tsh/Sound/Note.html">Note</a>
+      
+    </li>
+  
+  <li class="parent " data-id="tsh-cr/Tsh/Sound/Tone" data-name="tsh::sound::tone">
+      <a href="Tsh/Sound/Tone.html">Tone</a>
+      
+        <ul>
+  
+  <li class=" " data-id="tsh-cr/Tsh/Sound/Tone/Waveform" data-name="tsh::sound::tone::waveform">
+      <a href="Tsh/Sound/Tone/Waveform.html">Waveform</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="tsh-cr/Tsh/Sprite" data-name="tsh::sprite">
+      <a href="Tsh/Sprite.html">Sprite</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">module</span> Tsh
+
+</h1>
+
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <h2><a id="the-thirty-six-hundred-engine" class="anchor" href="#the-thirty-six-hundred-engine">  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>The T(hirty) S(ix) h(undred) engine</h2>
+<p>The primary module for the engine.</p>
+<p><code><a href="Tsh.html#play%28title%3AString%2Cres_x%3AUInt32%2Cres_y%3AUInt32%2Ccolors%3AArray%28Tsh%3A%3AColor%29%3D%5B%5DofTsh%3A%3AColor%2C%26%29-class-method">Tsh.play()</a></code> and <code><a href="Tsh/PlayThing.html">Tsh::PlayThing</a></code> are the most
+used parts of the engine.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      colors.cr
+    
+    <br/>
+  
+    
+      engine.cr
+    
+    <br/>
+  
+    
+      plaything.cr
+    
+    <br/>
+  
+    
+      sounds.cr
+    
+    <br/>
+  
+    
+      tsh-cr.cr
+    
+    <br/>
+  
+
+
+
+  
+    <h2>
+      <a id="constant-summary" class="anchor" href="#constant-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+      Constant Summary
+    </h2>
+  
+  <dl>
+    
+      <dt class="entry-const" id="COLOR_COUNT">
+        <strong>COLOR_COUNT</strong> = <code><span class="n">32</span></code>
+      </dt>
+      
+      <dd class="entry-const-doc">
+        <p>The size of <code><a href="Tsh.html#colors%3AColors-class-method">Tsh.colors</a></code></p>
+      </dd>
+      
+    
+      <dt class="entry-const" id="MAX_SOUNDS">
+        <strong>MAX_SOUNDS</strong> = <code><span class="n">16</span></code>
+      </dt>
+      
+      <dd class="entry-const-doc">
+        <p>The maximum amount of sound that can play at the same time. 1-16</p>
+      </dd>
+      
+    
+      <dt class="entry-const" id="VERSION">
+        <strong>VERSION</strong> = <code><span class="s">&quot;0.2.0&quot;</span></code>
+      </dt>
+      
+    
+  </dl>
+
+
+
+
+
+  <h2>
+    <a id="class-method-summary" class="anchor" href="#class-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#background_color%3ARaylib%3A%3AColor-class-method" class="signature"><strong>.background_color</strong> : Raylib::Color</a>
+        
+          <div class="summary"><p>The background color for the screen</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#background_color%3D%28background_color%3ARaylib%3A%3AColor%29-class-method" class="signature"><strong>.background_color=</strong>(background_color : Raylib::Color)</a>
+        
+          <div class="summary"><p>The background color for the screen</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#check_collisions-class-method" class="signature"><strong>.check_collisions</strong></a>
+        
+          <div class="summary"><p>Runs all collision checks</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#colors%3AColors-class-method" class="signature"><strong>.colors</strong> : Colors</a>
+        
+          <div class="summary"><p>A static array of <code>Tsh::Color</code> of size <code><a href="Tsh.html#COLOR_COUNT">COLOR_COUNT</a></code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#delta_time%3AFloat64-class-method" class="signature"><strong>.delta_time</strong> : Float64</a>
+        
+          <div class="summary"><p>Returns the time since the last frame rendered</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#destroy_all_playthings-class-method" class="signature"><strong>.destroy_all_playthings</strong></a>
+        
+          <div class="summary"><p>Destroys every PlayThing</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#game_time%3AFloat64-class-method" class="signature"><strong>.game_time</strong> : Float64</a>
+        
+          <div class="summary"><p>Returns the time since the game started</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#key_down%3F%28key%3AKey%29%3ABool-class-method" class="signature"><strong>.key_down?</strong>(key : Key) : Bool</a>
+        
+          <div class="summary"><p>Checks if a key is currently down</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#key_pressed%3F%28key%3AKey%29%3ABool-class-method" class="signature"><strong>.key_pressed?</strong>(key : Key) : Bool</a>
+        
+          <div class="summary"><p>Checks if a key has been pressed</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#play%28title%3AString%2Cres_x%3AUInt32%2Cres_y%3AUInt32%2Ccolors%3AArray%28Tsh%3A%3AColor%29%3D%5B%5DofTsh%3A%3AColor%2C%26%29-class-method" class="signature"><strong>.play</strong>(title : String, res_x : UInt32, res_y : UInt32, colors : Array(Tsh::Color) = <span class="o">[]</span> <span class="k">of</span> <span class="t">Tsh</span><span class="t">::</span><span class="t">Color</span>, &)</a>
+        
+          <div class="summary"><p>Starts the engine.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#res_x%3AUInt32-class-method" class="signature"><strong>.res_x</strong> : UInt32</a>
+        
+          <div class="summary"><p>The internal screen's resolution</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#res_y%3AUInt32-class-method" class="signature"><strong>.res_y</strong> : UInt32</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+
+
+<div class="methods-inherited">
+  
+</div>
+
+
+
+
+  <h2>
+    <a id="class-method-detail" class="anchor" href="#class-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="background_color:Raylib::Color-class-method">
+      <div class="signature">
+        
+        def self.<strong>background_color</strong> : Raylib::Color
+
+        <a class="method-permalink" href="#background_color%3ARaylib%3A%3AColor-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The background color for the screen</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="background_color=(background_color:Raylib::Color)-class-method">
+      <div class="signature">
+        
+        def self.<strong>background_color=</strong>(background_color : Raylib::Color)
+
+        <a class="method-permalink" href="#background_color%3D%28background_color%3ARaylib%3A%3AColor%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The background color for the screen</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="check_collisions-class-method">
+      <div class="signature">
+        
+        def self.<strong>check_collisions</strong>
+
+        <a class="method-permalink" href="#check_collisions-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Runs all collision checks</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="colors:Colors-class-method">
+      <div class="signature">
+        
+        def self.<strong>colors</strong> : Colors
+
+        <a class="method-permalink" href="#colors%3AColors-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>A static array of <code>Tsh::Color</code> of size <code><a href="Tsh.html#COLOR_COUNT">COLOR_COUNT</a></code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="delta_time:Float64-class-method">
+      <div class="signature">
+        
+        def self.<strong>delta_time</strong> : Float64
+
+        <a class="method-permalink" href="#delta_time%3AFloat64-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the time since the last frame rendered</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="destroy_all_playthings-class-method">
+      <div class="signature">
+        
+        def self.<strong>destroy_all_playthings</strong>
+
+        <a class="method-permalink" href="#destroy_all_playthings-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Destroys every PlayThing</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="game_time:Float64-class-method">
+      <div class="signature">
+        
+        def self.<strong>game_time</strong> : Float64
+
+        <a class="method-permalink" href="#game_time%3AFloat64-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the time since the game started</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="key_down?(key:Key):Bool-class-method">
+      <div class="signature">
+        
+        def self.<strong>key_down?</strong>(key : <a href="Tsh/Key.html">Key</a>) : Bool
+
+        <a class="method-permalink" href="#key_down%3F%28key%3AKey%29%3ABool-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Checks if a key is currently down</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="key_pressed?(key:Key):Bool-class-method">
+      <div class="signature">
+        
+        def self.<strong>key_pressed?</strong>(key : <a href="Tsh/Key.html">Key</a>) : Bool
+
+        <a class="method-permalink" href="#key_pressed%3F%28key%3AKey%29%3ABool-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Checks if a key has been pressed</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="play(title:String,res_x:UInt32,res_y:UInt32,colors:Array(Tsh::Color)=[]ofTsh::Color,&amp;)-class-method">
+      <div class="signature">
+        
+        def self.<strong>play</strong>(title : String, res_x : UInt32, res_y : UInt32, colors : Array(Tsh::Color) = <span class="o">[]</span> <span class="k">of</span> <span class="t">Tsh</span><span class="t">::</span><span class="t">Color</span>, &)
+
+        <a class="method-permalink" href="#play%28title%3AString%2Cres_x%3AUInt32%2Cres_y%3AUInt32%2Ccolors%3AArray%28Tsh%3A%3AColor%29%3D%5B%5DofTsh%3A%3AColor%2C%26%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Starts the engine.
+Yields a block to update the game</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="res_x:UInt32-class-method">
+      <div class="signature">
+        
+        def self.<strong>res_x</strong> : UInt32
+
+        <a class="method-permalink" href="#res_x%3AUInt32-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The internal screen's resolution</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="res_y:UInt32-class-method">
+      <div class="signature">
+        
+        def self.<strong>res_y</strong> : UInt32
+
+        <a class="method-permalink" href="#res_y%3AUInt32-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Crystal Docs 1.14.0">
+<meta name="crystal_docs.project_version" content="master-dev">
+<meta name="crystal_docs.project_name" content="tsh-cr">
+
+
+
+<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../js/doc.js"></script>
+
+  <meta name="repository-name" content="tsh-cr">
+  <title>Tsh::PlayThing::Flags - tsh-cr master-dev</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../../";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill="currentColor" fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<input type="checkbox" id="sidebar-btn">
+<label for="sidebar-btn" id="sidebar-btn-label">
+  <svg class="open" xmlns="http://www.w3.org/2000/svg" height="2em" width="2em" viewBox="0 0 512 512"><title>Open Sidebar</title><path fill="currentColor" d="M80 96v64h352V96H80zm0 112v64h352v-64H80zm0 112v64h352v-64H80z"></path></svg>
+  <svg class="close" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512"><title>Close Sidebar</title><path fill="currentColor" d="m118.6 73.4-45.2 45.2L210.7 256 73.4 393.4l45.2 45.2L256 301.3l137.4 137.3 45.2-45.2L301.3 256l137.3-137.4-45.2-45.2L256 210.7Z"></path></svg>
+</label>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../../index.html">
+          tsh-cr
+        </a>
+      </h1>
+
+      <span class="project-version">
+        master-dev
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="tsh-cr/Tsh" data-name="tsh">
+      <a href="../../Tsh.html">Tsh</a>
+      
+        <ul>
+  
+  <li class=" " data-id="tsh-cr/Tsh/CollisionFlags" data-name="tsh::collisionflags">
+      <a href="../../Tsh/CollisionFlags.html">CollisionFlags</a>
+      
+    </li>
+  
+  <li class=" " data-id="tsh-cr/Tsh/Flipbook" data-name="tsh::flipbook">
+      <a href="../../Tsh/Flipbook.html">Flipbook</a>
+      
+    </li>
+  
+  <li class=" " data-id="tsh-cr/Tsh/Key" data-name="tsh::key">
+      <a href="../../Tsh/Key.html">Key</a>
+      
+    </li>
+  
+  <li class=" " data-id="tsh-cr/Tsh/Note" data-name="tsh::note">
+      <a href="../../Tsh/Note.html">Note</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="tsh-cr/Tsh/PlayThing" data-name="tsh::plaything">
+      <a href="../../Tsh/PlayThing.html">PlayThing</a>
+      
+        <ul>
+  
+  <li class=" current" data-id="tsh-cr/Tsh/PlayThing/Flags" data-name="tsh::plaything::flags">
+      <a href="../../Tsh/PlayThing/Flags.html">Flags</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="tsh-cr/Tsh/PT" data-name="tsh::pt">
+      <a href="../../Tsh/PT.html">PT</a>
+      
+    </li>
+  
+  <li class="parent " data-id="tsh-cr/Tsh/Sound" data-name="tsh::sound">
+      <a href="../../Tsh/Sound.html">Sound</a>
+      
+        <ul>
+  
+  <li class=" " data-id="tsh-cr/Tsh/Sound/Note" data-name="tsh::sound::note">
+      <a href="../../Tsh/Sound/Note.html">Note</a>
+      
+    </li>
+  
+  <li class="parent " data-id="tsh-cr/Tsh/Sound/Tone" data-name="tsh::sound::tone">
+      <a href="../../Tsh/Sound/Tone.html">Tone</a>
+      
+        <ul>
+  
+  <li class=" " data-id="tsh-cr/Tsh/Sound/Tone/Waveform" data-name="tsh::sound::tone::waveform">
+      <a href="../../Tsh/Sound/Tone/Waveform.html">Waveform</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="tsh-cr/Tsh/Sprite" data-name="tsh::sprite">
+      <a href="../../Tsh/Sprite.html">Sprite</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">enum</span> Tsh::<wbr>PlayThing::<wbr>Flags
+
+</h1>
+
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>Flags for more miscellaneous functions</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      plaything.cr
+    
+    <br/>
+  
+
+
+
+  
+    <h2>
+      <a id="enum-members" class="anchor" href="#enum-members">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+      Enum Members
+    </h2>
+  
+  <dl>
+    
+      <dt class="entry-const" id="Invisible">
+        <strong>Invisible</strong> = <code><span class="n">1</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="Custom1">
+        <strong>Custom1</strong> = <code><span class="n">2</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="Custom2">
+        <strong>Custom2</strong> = <code><span class="n">4</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="Custom3">
+        <strong>Custom3</strong> = <code><span class="n">8</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="Custom4">
+        <strong>Custom4</strong> = <code><span class="n">16</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="Custom5">
+        <strong>Custom5</strong> = <code><span class="n">32</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="Custom6">
+        <strong>Custom6</strong> = <code><span class="n">64</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="None">
+        <strong>None</strong> = <code><span class="n">0</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="All">
+        <strong>All</strong> = <code><span class="n">127</span></code>
+      </dt>
+      
+    
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#custom1%3F-instance-method" class="signature"><strong>#custom1?</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#custom2%3F-instance-method" class="signature"><strong>#custom2?</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#custom3%3F-instance-method" class="signature"><strong>#custom3?</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#custom4%3F-instance-method" class="signature"><strong>#custom4?</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#custom5%3F-instance-method" class="signature"><strong>#custom5?</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#custom6%3F-instance-method" class="signature"><strong>#custom6?</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#invisible%3F-instance-method" class="signature"><strong>#invisible?</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#none%3F-instance-method" class="signature"><strong>#none?</strong></a>
+        
+      </li>
+    
+  </ul>
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="custom1?-instance-method">
+      <div class="signature">
+        
+        def <strong>custom1?</strong>
+
+        <a class="method-permalink" href="#custom1%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="custom2?-instance-method">
+      <div class="signature">
+        
+        def <strong>custom2?</strong>
+
+        <a class="method-permalink" href="#custom2%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="custom3?-instance-method">
+      <div class="signature">
+        
+        def <strong>custom3?</strong>
+
+        <a class="method-permalink" href="#custom3%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="custom4?-instance-method">
+      <div class="signature">
+        
+        def <strong>custom4?</strong>
+
+        <a class="method-permalink" href="#custom4%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="custom5?-instance-method">
+      <div class="signature">
+        
+        def <strong>custom5?</strong>
+
+        <a class="method-permalink" href="#custom5%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="custom6?-instance-method">
+      <div class="signature">
+        
+        def <strong>custom6?</strong>
+
+        <a class="method-permalink" href="#custom6%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="invisible?-instance-method">
+      <div class="signature">
+        
+        def <strong>invisible?</strong>
+
+        <a class="method-permalink" href="#invisible%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="none?-instance-method">
+      <div class="signature">
+        
+        def <strong>none?</strong>
+
+        <a class="method-permalink" href="#none%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+</div>
+
+</body>
+</html>
