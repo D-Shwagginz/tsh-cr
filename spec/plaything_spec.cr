@@ -63,16 +63,16 @@ describe Tsh::PlayThing do
     Tsh.play("Spec", 100, 100, [] of Tsh::Color) do
       case times_updated
       when 0
-        pt.angle = 1
+        pt.angle = 1_f32
         pt.angle.should eq 1
       when 1
-        pt.angle = 361
+        pt.angle = 361_f32
         pt.angle.should eq 1
       when 2
-        pt.angle = -200
+        pt.angle = -200_f32
         pt.angle.should eq 160
       when 3
-        pt.angle = -361
+        pt.angle = -361_f32
         pt.angle.should eq 359
       when 4
         pt.destroy
