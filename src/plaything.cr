@@ -185,7 +185,7 @@ module Tsh
     # The PlayThing's angle in degrees.
     # 0 points up.
     # All ways to set will keep the value between 0 and 360
-    getter angle : Float32 = 0.0
+    getter angle : Float32 | Float64 = 0.0
 
     # The sprite to display from *sprites*
     getter sprite : Int32 = -1
@@ -248,7 +248,7 @@ module Tsh
     end
 
     # Sets the angle and removes all 360's from the number to ensure it is between 0 and 359
-    def angle=(angle : Float32)
+    def angle=(angle : Float32 | Float64)
       @angle = angle < 0 ? (360 - (angle.abs - (angle.abs // 360) * 360)) : angle - (angle // 360) * 360
     end
 
